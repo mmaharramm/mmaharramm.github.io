@@ -8,8 +8,8 @@ title_separator          : "-"
 name                     : &name "Maharram Maharramov"
 description              : &description "Certifications, HackTheBox writeups and projects."
 url                      : "https://mmaharramm.github.io"
-baseurl                  : "/0xMM-security-blog"
-repository               : "mmaharramm/0xMM-security-blog"
+baseurl                  : ""
+repository               : "mmaharramm/mmaharramm.github.io"
 
 # Sidebar
 author:
