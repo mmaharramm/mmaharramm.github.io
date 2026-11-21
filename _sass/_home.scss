@@ -212,7 +212,20 @@ $hx-mono:  ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", mon
 
 .hx-disclosure {
   margin: 1.5rem 0 0;
+  padding: 0.75rem 0.9rem;
+  border-left: 3px solid var(--hx-accent);
+  border-radius: 4px;
+  background: var(--hx-pill-bg);
   font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--global-text-color-light);
+  strong { color: var(--global-text-color); }
+}
+.page__footer-disclaimer {
+  max-width: 46rem;
+  margin: 0.6rem 0 0;
+  font-size: 0.72rem;
+  line-height: 1.5;
   color: var(--global-text-color-light);
 }
 

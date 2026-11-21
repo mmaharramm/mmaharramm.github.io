@@ -28,3 +28,4 @@
   {% endfor %}
   {% if f.tagline and f.tagline != "" %}<br>{{ f.tagline }}{% endif %}
 </div>
+{% if f.disclaimer and f.disclaimer != "" %}<p class="page__footer-disclaimer">{{ f.disclaimer }}</p>{% endif %}

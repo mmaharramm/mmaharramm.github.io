@@ -24,7 +24,14 @@ projects_title: "Projects"
 projects_intro: "Things I've built, broken, or automated."
 
 # Small print shown at the end of the About card
-disclosure: "Content here is for education. Writeups cover only retired machines or challenges whose rules permit publication, and nothing here comes from employer or client environments."
+disclosure: >-
+  All content on this site is published strictly for educational and research purposes.
+  Every technique, tool and walkthrough was performed in a controlled lab environment,
+  on retired training machines, or in challenges whose rules permit publication.
+  Nothing here comes from employer, client or other third-party environments.
+  Do not use this material against any system you do not own or have explicit written
+  permission to test; unauthorized access is illegal. The author accepts no responsibility
+  or liability for any misuse of this information or for any damage resulting from it.
 
 # Little characters peeking out from behind your photo (up to 6, placed clockwise from top-left).
 # Use transparent PNG/WebP files (~150-250px tall) saved in /images/peekers/. Empty list = none shown.

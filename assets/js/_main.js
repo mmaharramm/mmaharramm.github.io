@@ -151,7 +151,8 @@ $(document).ready(function () {
 
   const sectionFor = function (hash) {
     if (!hash || hash.length < 2) { return null; }
-    const el = document.getElementById(decodeURIComponent(hash.slice(1)));
+    let id; try { id = decodeURIComponent(hash.slice(1)); } catch (e) { return null; }   // malformed %-escapes
+    const el = document.getElementById(id);
     return el && el.classList.contains('hx-section') ? el : null;
   };
 
