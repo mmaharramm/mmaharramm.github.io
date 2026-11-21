@@ -8,6 +8,9 @@
    sorted by the dependencies. Also, the first two lines of the file are required by Jekyll.
  */
 
+/* Build stamp: appended to side-art URLs so browsers fetch new art on every deploy. */
+$vibe-v: "{{ site.time | date: '%s' }}";
+
 @import
     "vendor/breakpoint/breakpoint",
 

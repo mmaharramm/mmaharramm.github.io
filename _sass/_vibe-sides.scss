@@ -95,8 +95,8 @@ html.vibe-wait .vibe-layer { opacity: 0; }
     inset: 0;
     background-color: var(--vibe-grain);
     opacity: calc(0.05 * var(--vibe-boost));
-    -webkit-mask: url("../../images/vibe/grain.svg") 0 0 / 220px repeat;
-            mask: url("../../images/vibe/grain.svg") 0 0 / 220px repeat;
+    -webkit-mask: url("../../images/vibe/grain.svg?v=#{$vibe-v}") 0 0 / 220px repeat;
+            mask: url("../../images/vibe/grain.svg?v=#{$vibe-v}") 0 0 / 220px repeat;
   }
   .vibe-side--right::after { -webkit-mask-position: 110px 70px; mask-position: 110px 70px; }
 
@@ -132,38 +132,38 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   }
 
   /* Art + native aspect ratio (from each SVG's viewBox). */
-  .vibe-p--dish      { --m: url("../../images/vibe/dish-blueprint.svg");       --ar: 400 / 620; }
-  .vibe-p--yagi      { --m: url("../../images/vibe/yagi-antenna.svg");         --ar: 360 / 580; }
-  .vibe-p--radio     { --m: url("../../images/vibe/field-radio.svg");          --ar: 380 / 600; }
-  .vibe-p--monitors  { --m: url("../../images/vibe/monitor-wall.svg");         --ar: 420 / 560; }
-  .vibe-p--nvg       { --m: url("../../images/vibe/nvg.svg");                  --ar: 400 / 580; }
-  .vibe-p--smith     { --m: url("../../images/vibe/smith-chart.svg");          --ar: 400 / 420; }
-  .vibe-p--waterfall { --m: url("../../images/vibe/waterfall-strip.svg");      --ar: 130 / 620; }
-  .vibe-p--notes     { --m: url("../../images/vibe/notes-scrawl.svg");         --ar: 360 / 500; --c: var(--vibe-accent); }
-  .vibe-p--scrap1    { --m: url("../../images/vibe/paper-scrap-1.svg");        --ar: 300 / 380; }
-  .vibe-p--scrap2    { --m: url("../../images/vibe/paper-scrap-2.svg");        --ar: 340 / 250; }
+  .vibe-p--dish      { --m: url("../../images/vibe/dish-blueprint.svg?v=#{$vibe-v}");       --ar: 400 / 620; }
+  .vibe-p--yagi      { --m: url("../../images/vibe/yagi-antenna.svg?v=#{$vibe-v}");         --ar: 360 / 580; }
+  .vibe-p--radio     { --m: url("../../images/vibe/field-radio.svg?v=#{$vibe-v}");          --ar: 380 / 600; }
+  .vibe-p--monitors  { --m: url("../../images/vibe/monitor-wall.svg?v=#{$vibe-v}");         --ar: 420 / 560; }
+  .vibe-p--nvg       { --m: url("../../images/vibe/nvg.svg?v=#{$vibe-v}");                  --ar: 400 / 580; }
+  .vibe-p--smith     { --m: url("../../images/vibe/smith-chart.svg?v=#{$vibe-v}");          --ar: 400 / 420; }
+  .vibe-p--waterfall { --m: url("../../images/vibe/waterfall-strip.svg?v=#{$vibe-v}");      --ar: 130 / 620; }
+  .vibe-p--notes     { --m: url("../../images/vibe/notes-scrawl.svg?v=#{$vibe-v}");         --ar: 360 / 500; --c: var(--vibe-accent); }
+  .vibe-p--scrap1    { --m: url("../../images/vibe/paper-scrap-1.svg?v=#{$vibe-v}");        --ar: 300 / 380; }
+  .vibe-p--scrap2    { --m: url("../../images/vibe/paper-scrap-2.svg?v=#{$vibe-v}");        --ar: 340 / 250; }
   .vibe-p--tape,
-  .vibe-p--tape2     { --m: url("../../images/vibe/tape-strip.svg");           --ar: 320 / 96; }
-  .vibe-p--halftone  { --m: url("../../images/vibe/halftone-dots.svg");        --ar: 1; --c: var(--vibe-accent); }
-  .vibe-p--glider    { --m: url("../../images/vibe/hack-glider.svg");          --ar: 360 / 540; --c: var(--vibe-accent); }
-  .vibe-p--hexdump   { --m: url("../../images/vibe/hack-hexdump.svg");         --ar: 440 / 330; }
-  .vibe-p--terminal  { --m: url("../../images/vibe/hack-terminal.svg");        --ar: 430 / 380; }
-  .vibe-p--pcb       { --m: url("../../images/vibe/hack-pcb.svg");             --ar: 400 / 500; }
-  .vibe-p--packet    { --m: url("../../images/vibe/hack-packet.svg");          --ar: 400 / 470; }
-  .vibe-p--lockpick  { --m: url("../../images/vibe/hack-lockpick.svg");        --ar: 400 / 560; }
-  .vibe-p--history   { --m: url("../../images/vibe/hack-shell-history.svg");   --ar: 380 / 520; --c: var(--vibe-accent); }
-  .vibe-p--qr        { --m: url("../../images/vibe/hack-qr.svg");              --ar: 1; }
+  .vibe-p--tape2     { --m: url("../../images/vibe/tape-strip.svg?v=#{$vibe-v}");           --ar: 320 / 96; }
+  .vibe-p--halftone  { --m: url("../../images/vibe/halftone-dots.svg?v=#{$vibe-v}");        --ar: 1; --c: var(--vibe-accent); }
+  .vibe-p--glider    { --m: url("../../images/vibe/hack-glider.svg?v=#{$vibe-v}");          --ar: 360 / 540; --c: var(--vibe-accent); }
+  .vibe-p--hexdump   { --m: url("../../images/vibe/hack-hexdump.svg?v=#{$vibe-v}");         --ar: 440 / 330; }
+  .vibe-p--terminal  { --m: url("../../images/vibe/hack-terminal.svg?v=#{$vibe-v}");        --ar: 430 / 380; }
+  .vibe-p--pcb       { --m: url("../../images/vibe/hack-pcb.svg?v=#{$vibe-v}");             --ar: 400 / 500; }
+  .vibe-p--packet    { --m: url("../../images/vibe/hack-packet.svg?v=#{$vibe-v}");          --ar: 400 / 470; }
+  .vibe-p--lockpick  { --m: url("../../images/vibe/hack-lockpick.svg?v=#{$vibe-v}");        --ar: 400 / 560; }
+  .vibe-p--history   { --m: url("../../images/vibe/hack-shell-history.svg?v=#{$vibe-v}");   --ar: 380 / 520; --c: var(--vibe-accent); }
+  .vibe-p--qr        { --m: url("../../images/vibe/hack-qr.svg?v=#{$vibe-v}");              --ar: 1; }
   /* Poster prints, laid on the paper scraps (tactical-poster language: heavy caps, +++, microtext). */
-  .vibe-poster--sigint { --m: url("../../images/vibe/poster-sigint.svg"); --ar: 300 / 380; }
-  .vibe-poster--noise  { --m: url("../../images/vibe/poster-noise.svg");  --ar: 340 / 250; }
-  .vibe-poster--2026   { --m: url("../../images/vibe/poster-2026.svg");   --ar: 340 / 250; }
+  .vibe-poster--sigint { --m: url("../../images/vibe/poster-sigint.svg?v=#{$vibe-v}"); --ar: 300 / 380; }
+  .vibe-poster--noise  { --m: url("../../images/vibe/poster-noise.svg?v=#{$vibe-v}");  --ar: 340 / 250; }
+  .vibe-poster--2026   { --m: url("../../images/vibe/poster-2026.svg?v=#{$vibe-v}");   --ar: 340 / 250; }
   /* Accent-mark layers (stars, X marks, dials, +++): same box and colour as the piece underneath. */
   .vibe-red { --b: 0px; }
-  .vibe-red.vibe-poster--sigint { --m: url("../../images/vibe/poster-sigint-red.svg"); }
-  .vibe-red.vibe-poster--noise  { --m: url("../../images/vibe/poster-noise-red.svg"); }
-  .vibe-red.vibe-poster--2026   { --m: url("../../images/vibe/poster-2026-red.svg"); }
-  .vibe-red.vibe-p--halftone    { --m: url("../../images/vibe/halftone-dots-red.svg"); }
-  .vibe-red.vibe-p--notes       { --m: url("../../images/vibe/notes-scrawl-red.svg"); }
+  .vibe-red.vibe-poster--sigint { --m: url("../../images/vibe/poster-sigint-red.svg?v=#{$vibe-v}"); }
+  .vibe-red.vibe-poster--noise  { --m: url("../../images/vibe/poster-noise-red.svg?v=#{$vibe-v}"); }
+  .vibe-red.vibe-poster--2026   { --m: url("../../images/vibe/poster-2026-red.svg?v=#{$vibe-v}"); }
+  .vibe-red.vibe-p--halftone    { --m: url("../../images/vibe/halftone-dots-red.svg?v=#{$vibe-v}"); }
+  .vibe-red.vibe-p--notes       { --m: url("../../images/vibe/notes-scrawl-red.svg?v=#{$vibe-v}"); }
 
   /* Treatment by role. */
   .vibe-p--scrap1, .vibe-p--scrap2 {
@@ -208,14 +208,14 @@ html.vibe-wait .vibe-layer { opacity: 0; }
     .vibe-ph { left: var(--x, 0); top: var(--y, 0); width: var(--w, 60%); }
   }
 
-  .vibe-ph--elint     { --m: url("../../images/vibe/photo-elint-chart.jpg");    --ar: 527 / 388; }
-  .vibe-ph--dish      { --m: url("../../images/vibe/photo-tracking-dish.png");  --ar: 511 / 640; }
-  .vibe-ph--operator  { --m: url("../../images/vibe/photo-field-operator.jpg"); --ar: 414 / 640; }
-  .vibe-ph--listen    { --m: url("../../images/vibe/poster-listen.png");      --ar: 900 / 1125; }
-  .vibe-ph--jumpseat  { --m: url("../../images/vibe/photo-jumpseat.jpg");       --ar: 495 / 640; }
-  .vibe-ph--nvgpatent { --m: url("../../images/vibe/photo-nvg-patent-1.jpg");   --ar: 436 / 640; }
-  .vibe-radial--plan  { --m: url("../../images/vibe/photo-frd10-plan.jpg");     --ar: 640 / 616; }
-  .vibe-radial--cage  { --m: url("../../images/vibe/photo-elephant-cage.png");  --ar: 640 / 490; }
+  .vibe-ph--elint     { --m: url("../../images/vibe/photo-elint-chart.jpg?v=#{$vibe-v}");    --ar: 527 / 388; }
+  .vibe-ph--dish      { --m: url("../../images/vibe/photo-tracking-dish.png?v=#{$vibe-v}");  --ar: 511 / 640; }
+  .vibe-ph--operator  { --m: url("../../images/vibe/photo-field-operator.jpg?v=#{$vibe-v}"); --ar: 414 / 640; }
+  .vibe-ph--listen    { --m: url("../../images/vibe/poster-listen.png?v=#{$vibe-v}");      --ar: 900 / 1125; }
+  .vibe-ph--jumpseat  { --m: url("../../images/vibe/photo-jumpseat.jpg?v=#{$vibe-v}");       --ar: 495 / 640; }
+  .vibe-ph--nvgpatent { --m: url("../../images/vibe/photo-nvg-patent-1.jpg?v=#{$vibe-v}");   --ar: 436 / 640; }
+  .vibe-radial--plan  { --m: url("../../images/vibe/photo-frd10-plan.jpg?v=#{$vibe-v}");     --ar: 640 / 616; }
+  .vibe-radial--cage  { --m: url("../../images/vibe/photo-elephant-cage.png?v=#{$vibe-v}");  --ar: 640 / 490; }
 
   /* Big radial forms: ~50% cropped by the outer viewport edge. */
   .vibe-radial {
@@ -292,17 +292,17 @@ html.vibe-wait .vibe-layer { opacity: 0; }
 
   /* Original security-symbol drawings (images/vibe/sec-*.svg), placed like the icons. */
   .vibe-sec { --o: 0.2; --b: 0.5px; }
-  .vibe-sec--fingerprint { --m: url("../../images/vibe/sec-fingerprint.svg");   --ar: 420 / 460; --x: 50%; --y: clamp(1500px, 87.5%, 4400px); --w: clamp(90px, 30%, 150px); --b: 0.35px; --r: 6deg; --c: var(--vibe-accent); }
-  .vibe-sec--key         { --m: url("../../images/vibe/sec-skeleton-key.svg");  --ar: 260 / 600; --x: 12%; --y: 1930px; --w: 18%; --r: -28deg; }
-  .vibe-sec--roger       { --m: url("../../images/vibe/sec-jolly-roger.svg");   --ar: 1;         --x: 14%; --y: 1010px; --w: 36%; --r: -10deg; --o: 0.18; }
-  .vibe-sec--padlock     { --m: url("../../images/vibe/sec-padlock.svg");       --ar: 320 / 480; --x: 52%; --y: clamp(1500px, 92%, 4600px); --w: clamp(80px, 28%, 120px); --r: -6deg; }
+  .vibe-sec--fingerprint { --m: url("../../images/vibe/sec-fingerprint.svg?v=#{$vibe-v}");   --ar: 420 / 460; --x: 50%; --y: clamp(1500px, 87.5%, 4400px); --w: clamp(90px, 30%, 150px); --b: 0.35px; --r: 6deg; --c: var(--vibe-accent); }
+  .vibe-sec--key         { --m: url("../../images/vibe/sec-skeleton-key.svg?v=#{$vibe-v}");  --ar: 260 / 600; --x: 12%; --y: 1930px; --w: 18%; --r: -28deg; }
+  .vibe-sec--roger       { --m: url("../../images/vibe/sec-jolly-roger.svg?v=#{$vibe-v}");   --ar: 1;         --x: 14%; --y: 1010px; --w: 36%; --r: -10deg; --o: 0.18; }
+  .vibe-sec--padlock     { --m: url("../../images/vibe/sec-padlock.svg?v=#{$vibe-v}");       --ar: 320 / 480; --x: 52%; --y: clamp(1500px, 92%, 4600px); --w: clamp(80px, 28%, 120px); --r: -6deg; }
 
   /* Field kit, FIGS. 1-3 (images/vibe/kit-*.svg). */
-  .vibe-kit--fieldkit { --m: url("../../images/vibe/kit-fieldkit.svg"); --ar: 460 / 560;
+  .vibe-kit--fieldkit { --m: url("../../images/vibe/kit-fieldkit.svg?v=#{$vibe-v}"); --ar: 460 / 560;
     --x: 3%;  --y: clamp(1150px, 41.5%, 2700px); --w: 66%; --r: -3deg;  --o: 0.18; --b: 0.55px; }
-  .vibe-kit--neofetch { --m: url("../../images/vibe/kit-neofetch.svg"); --ar: 360 / 330;
+  .vibe-kit--neofetch { --m: url("../../images/vibe/kit-neofetch.svg?v=#{$vibe-v}"); --ar: 360 / 330;
     --x: 38%; --y: clamp(1130px, 40%, 2600px);   --w: 56%; --r: 3deg;   --o: 0.20; --b: 0.5px; }
-  .vibe-kit--quad     { --m: url("../../images/vibe/kit-quad.svg");     --ar: 420 / 520;
+  .vibe-kit--quad     { --m: url("../../images/vibe/kit-quad.svg?v=#{$vibe-v}");     --ar: 420 / 520;
     --x: 38%; --y: clamp(1750px, 62.8%, 3700px); --w: 54%; --r: -10deg; --o: 0.20; --b: 0.5px; }
 
   /* Tape holding FIG. 1 (upper-left corner) and FIG. 3 (top edge). */
@@ -319,28 +319,28 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   /* B-2: US Air Force photo (public domain) engraved into scanlines, under a HUD overlay
      drawn to the same 760x520 box. Both layers share position, size and rotation. */
   .vibe-b2         { --x: 0%; --y: 84px; --w: clamp(240px, 100%, 440px); --ar: 760 / 520; --r: 4deg; }
-  .vibe-ph.vibe-b2 { --m: url("../../images/vibe/photo-b2-engraved.jpg"); --o: 0.3; --b: 0.25px; }
-  .vibe-b2--hud    { --m: url("../../images/vibe/hud-b2.svg"); --o: 0.22; --b: 0.4px; }
-  .vibe-x--rotors   { --m: url("../../images/vibe/crypt-rotors.svg");   --ar: 360 / 540;
+  .vibe-ph.vibe-b2 { --m: url("../../images/vibe/photo-b2-engraved.jpg?v=#{$vibe-v}"); --o: 0.3; --b: 0.25px; }
+  .vibe-b2--hud    { --m: url("../../images/vibe/hud-b2.svg?v=#{$vibe-v}"); --o: 0.22; --b: 0.4px; }
+  .vibe-x--rotors   { --m: url("../../images/vibe/crypt-rotors.svg?v=#{$vibe-v}");   --ar: 360 / 540;
     --x: 30%; --y: clamp(640px, 29%, 1500px); --w: clamp(130px, 44%, 200px); --r: 3deg; --o: 0.26; }
-  .vibe-x--ram      { --m: url("../../images/vibe/retro-ram.svg");      --ar: 440 / 330;
+  .vibe-x--ram      { --m: url("../../images/vibe/retro-ram.svg?v=#{$vibe-v}");      --ar: 440 / 330;
     --x: 6%;  --y: clamp(1500px, 76%, 3900px); --w: clamp(190px, 70%, 300px); --r: -4deg; --o: 0.24; --b: 0.4px; }
-  .vibe-x--dialog   { --m: url("../../images/vibe/retro-dialog.svg");   --ar: 380 / 250;
+  .vibe-x--dialog   { --m: url("../../images/vibe/retro-dialog.svg?v=#{$vibe-v}");   --ar: 380 / 250;
     --x: 10%; --y: clamp(860px, 37.6%, 1900px); --w: clamp(190px, 68%, 300px); --r: 4deg; }
-  .vibe-x--eye      { --m: url("../../images/vibe/surv-eye.svg");       --ar: 420 / 300;
+  .vibe-x--eye      { --m: url("../../images/vibe/surv-eye.svg?v=#{$vibe-v}");       --ar: 420 / 300;
     --x: 0%;  --y: clamp(1320px, 57.6%, 3000px); --w: clamp(220px, 80%, 340px); --r: -4deg; --o: 0.22; }
 
   /* Wide set: the outer half of each gutter, only where it is really empty. */
   .vibe-wide { display: none; }
-  .vibe-x--terminal { --m: url("../../images/vibe/retro-terminal.svg"); --ar: 420 / 500;
+  .vibe-x--terminal { --m: url("../../images/vibe/retro-terminal.svg?v=#{$vibe-v}"); --ar: 420 / 500;
     --x: 1%; --y: 150px; --w: 190px; --r: -6deg; }
-  .vibe-x--receiver { --m: url("../../images/vibe/rf-receiver.svg");    --ar: 460 / 300;
+  .vibe-x--receiver { --m: url("../../images/vibe/rf-receiver.svg?v=#{$vibe-v}");    --ar: 460 / 300;
     --x: 1%; --y: clamp(1700px, 74.5%, 3800px); --w: 210px; --r: 4deg; }
-  .vibe-x--wheel    { --m: url("../../images/vibe/crypt-wheel.svg");    --ar: 400 / 430;
+  .vibe-x--wheel    { --m: url("../../images/vibe/crypt-wheel.svg?v=#{$vibe-v}");    --ar: 400 / 430;
     --x: calc(99% - 210px); --y: clamp(520px, 23%, 1300px); --w: 210px; --r: 8deg; }
-  .vibe-x--floppy   { --m: url("../../images/vibe/retro-floppy.svg");   --ar: 300 / 320;
+  .vibe-x--floppy   { --m: url("../../images/vibe/retro-floppy.svg?v=#{$vibe-v}");   --ar: 300 / 320;
     --x: calc(98% - 150px); --y: clamp(860px, 38%, 2000px); --w: 150px; --r: -9deg; }
-  .vibe-x--authkey  { --m: url("../../images/vibe/hw-authkey.svg");     --ar: 320 / 560;
+  .vibe-x--authkey  { --m: url("../../images/vibe/hw-authkey.svg?v=#{$vibe-v}");     --ar: 320 / 560;
     --x: calc(98% - 150px); --y: clamp(1620px, 71%, 3700px); --w: 150px; --r: 5deg; }
 }
 @media (min-width: 2400px) and (hover: none), (min-width: 2400px) and (pointer: coarse), (min-width: 2160.0px) and (hover: hover) and (pointer: fine) {
@@ -397,11 +397,11 @@ html.vibe-wait .vibe-layer { opacity: 0; }
 }
 @media (min-width: 1440px) and (max-width: 1919px) and (hover: none), (min-width: 1440px) and (max-width: 1919px) and (pointer: coarse), (min-width: 1296.0px) and (max-width: 1727.98px) and (hover: hover) and (pointer: fine) {
   .vibe-gap { --o: 0.2; --b: 0.4px; --vibe-depth: 14px; }
-  .vibe-gap--track { --m: url("../../images/vibe/track-b2.svg");    --ar: 420 / 270; --x: 2%;  --y: 258px;                        --w: clamp(190px, 100%, 230px); --r: -2deg; --o: 0.24; }
-  .vibe-gap--hash  { --m: url("../../images/vibe/hash-verify.svg"); --ar: 360 / 250; --x: 4%;  --y: clamp(790px, 34.5%, 1900px);  --w: clamp(180px, 96%, 210px);  --r: 3deg; }
-  .vibe-gap--nmap  { --m: url("../../images/vibe/nmap-scrap.svg");  --ar: 360 / 240; --x: 4%;  --y: clamp(1525px, 66.5%, 3500px); --w: clamp(180px, 96%, 210px);  --r: -3deg; }
-  .vibe-gap--scope { --m: url("../../images/vibe/scope-ook.svg");   --ar: 380 / 250; --x: 2%;  --y: clamp(425px, 18.5%, 1100px);  --w: clamp(180px, 96%, 210px);  --r: -3deg; }
-  .vibe-gap--pivot { --m: url("../../images/vibe/net-pivot.svg");   --ar: 380 / 420; --x: 4%;  --y: clamp(1640px, 71.5%, 3700px); --w: clamp(170px, 90%, 200px);  --r: 2deg; }
+  .vibe-gap--track { --m: url("../../images/vibe/track-b2.svg?v=#{$vibe-v}");    --ar: 420 / 270; --x: 2%;  --y: 258px;                        --w: clamp(190px, 100%, 230px); --r: -2deg; --o: 0.24; }
+  .vibe-gap--hash  { --m: url("../../images/vibe/hash-verify.svg?v=#{$vibe-v}"); --ar: 360 / 250; --x: 4%;  --y: clamp(790px, 34.5%, 1900px);  --w: clamp(180px, 96%, 210px);  --r: 3deg; }
+  .vibe-gap--nmap  { --m: url("../../images/vibe/nmap-scrap.svg?v=#{$vibe-v}");  --ar: 360 / 240; --x: 4%;  --y: clamp(1525px, 66.5%, 3500px); --w: clamp(180px, 96%, 210px);  --r: -3deg; }
+  .vibe-gap--scope { --m: url("../../images/vibe/scope-ook.svg?v=#{$vibe-v}");   --ar: 380 / 250; --x: 2%;  --y: clamp(425px, 18.5%, 1100px);  --w: clamp(180px, 96%, 210px);  --r: -3deg; }
+  .vibe-gap--pivot { --m: url("../../images/vibe/net-pivot.svg?v=#{$vibe-v}");   --ar: 380 / 420; --x: 4%;  --y: clamp(1640px, 71.5%, 3700px); --w: clamp(170px, 90%, 200px);  --r: 2deg; }
 }
 
 /* 1680-1799px: the minor pieces are back, so the gaps move (measured at 1700px). From 1800px the bands close up. */
@@ -410,6 +410,6 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   .vibe-gap--scope { --x: 4%;  --y: clamp(440px, 19.2%, 1100px);  --w: clamp(180px, 92%, 210px); }
   .vibe-gap--hash  { --x: 6%;  --y: clamp(995px, 43.4%, 2300px);  --w: clamp(180px, 90%, 210px); }
   .vibe-gap--pivot { --x: 6%;  --y: clamp(1535px, 67%, 3500px);   --w: clamp(160px, 80%, 185px); }
-  .vibe-gap--totp  { --m: url("../../images/vibe/totp-token.svg"); --ar: 320 / 230; --x: calc(98% - 175px); --y: clamp(1985px, 86.6%, 4300px); --w: clamp(150px, 72%, 175px); --r: -4deg; }
-  .vibe-gap--jwt   { --m: url("../../images/vibe/jwt-scrap.svg"); --ar: 360 / 230; --x: 4%; --y: clamp(1030px, 45%, 2400px); --w: clamp(180px, 90%, 210px); --r: 2deg; }
+  .vibe-gap--totp  { --m: url("../../images/vibe/totp-token.svg?v=#{$vibe-v}"); --ar: 320 / 230; --x: calc(98% - 175px); --y: clamp(1985px, 86.6%, 4300px); --w: clamp(150px, 72%, 175px); --r: -4deg; }
+  .vibe-gap--jwt   { --m: url("../../images/vibe/jwt-scrap.svg?v=#{$vibe-v}"); --ar: 360 / 230; --x: 4%; --y: clamp(1030px, 45%, 2400px); --w: clamp(180px, 90%, 210px); --r: 2deg; }
 }
