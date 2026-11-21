@@ -35,6 +35,7 @@
   --vibe-grain:    #0b4f2e;
   --vibe-shadow:   rgba(11, 60, 35, 0.10);
   --vibe-boost:    1.4;       /* global opacity multiplier (raised for visibility) */
+  --vibe-red:      #cf3429;   /* single loud accent: X marks, dials, +++ */
 }
 
 html[data-theme="dark"] {
@@ -46,6 +47,7 @@ html[data-theme="dark"] {
   --vibe-grain:    #a6e8c4;
   --vibe-shadow:   rgba(0, 0, 0, 0.28);
   --vibe-boost:    1.1;
+  --vibe-red:      #ff6b5e;
 }
 
 /* Hidden by default: phones, tablets and laptops never render or fetch it. */
@@ -157,6 +159,13 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   .vibe-poster--sigint { --m: url("../../images/vibe/poster-sigint.svg"); --ar: 300 / 380; }
   .vibe-poster--noise  { --m: url("../../images/vibe/poster-noise.svg");  --ar: 340 / 250; }
   .vibe-poster--2026   { --m: url("../../images/vibe/poster-2026.svg");   --ar: 340 / 250; }
+  /* Red accent layers: same box as the piece underneath, only the marks. */
+  .vibe-red { --c: var(--vibe-red); --b: 0px; }
+  .vibe-red.vibe-poster--sigint { --m: url("../../images/vibe/poster-sigint-red.svg"); }
+  .vibe-red.vibe-poster--noise  { --m: url("../../images/vibe/poster-noise-red.svg"); }
+  .vibe-red.vibe-poster--2026   { --m: url("../../images/vibe/poster-2026-red.svg"); }
+  .vibe-red.vibe-p--halftone    { --m: url("../../images/vibe/halftone-dots-red.svg"); }
+  .vibe-red.vibe-p--notes       { --m: url("../../images/vibe/notes-scrawl-red.svg"); }
 
   /* Treatment by role. */
   .vibe-p--scrap1, .vibe-p--scrap2 {
@@ -164,10 +173,13 @@ html.vibe-wait .vibe-layer { opacity: 0; }
     opacity: var(--vibe-paper-o);
     filter: drop-shadow(0 2px 3px var(--vibe-shadow));
   }
-  .vibe-poster                       { --o: 0.3;  --b: 0px; }
-  .vibe-p--halftone                  { --o: 0.22; --b: 0px; }   /* contact sheet */
-  .vibe-p--tape, .vibe-p--tape2      { --o: 0.24; --b: 0px; }   /* +++ label strips */
-  .vibe-p--notes                     { --o: 0.26; --b: 0px; }   /* spec sheet */
+  .vibe-poster                       { --o: 0.38; --b: 0px; }   /* bolder */
+  .vibe-p--halftone                  { --o: 0.28; --b: 0px; }   /* contact sheet */
+  .vibe-p--tape, .vibe-p--tape2      { --o: 0.3;  --b: 0px; }   /* +++ label strips */
+  .vibe-p--notes                     { --o: 0.32; --b: 0px; }   /* spec sheet */
+  .vibe-red.vibe-poster              { --o: 0.5; }
+  .vibe-red.vibe-p--halftone         { --o: 0.42; }
+  .vibe-red.vibe-p--notes            { --o: 0.48; }
   .vibe-p--waterfall                 { --o: 0.12; --b: 1.2px; }
   .vibe-p--smith                     { --o: 0.10; --b: 1.4px; }
   .vibe-p--dish, .vibe-p--packet, .vibe-p--lockpick,
