@@ -16,6 +16,3 @@ links: []
   # - label: "RSS"
   #   url: "/feed.xml"
   #   icon: "fas fa-rss"
-
-# Short disclaimer shown at the bottom of every page (the full one is in _data/home.yml).
-disclaimer: "For educational purposes only. All work shown was performed in controlled lab environments. Do not test systems without authorization. The author accepts no liability for misuse."
