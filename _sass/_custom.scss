@@ -171,9 +171,15 @@ $hx-nav-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", 
   justify-self: stretch;
 }
 
+/* keep the masthead's bottom rule above the nav controls */
+.masthead::after { z-index: 101; }
+
 .hx-nav .greedy-nav {
   min-width: 0;
   background: transparent;
+
+  /* the ☰ button sat on top of the masthead's bottom rule with an opaque background */
+  > .greedy-nav__toggle { background-color: transparent; }
 
   /* when the ☰ button is showing, keep the last visible item (theme toggle) clear of it */
   &:has(> .greedy-nav__toggle:not(.hidden)) .visible-links { margin-right: 2.75rem; }
