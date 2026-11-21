@@ -25,12 +25,12 @@ projects_intro: "Things I've built, broken, or automated."
 
 # Small print shown at the end of the About card
 disclosure: >-
-  All content on this site is published strictly for educational and research purposes.
+  All content on this site is published strictly for EDUCATIONAL and RESEARCH purposes.
   Every technique, tool and walkthrough was performed in a controlled lab environment,
-  on retired training machines, or in challenges whose rules permit publication.
+  on retired training machines, or permitted challenges.
   Nothing here comes from employer, client or other third-party environments.
   Do not use this material against any system you do not own or have explicit written
-  permission to test; unauthorized access is illegal. The author accepts no responsibility
+  permission to test; unauthorized access is illegal. I do not accept any responsibility
   or liability for any misuse of this information or for any damage resulting from it.
 
 # Little characters peeking out from behind your photo (up to 6, placed clockwise from top-left).
