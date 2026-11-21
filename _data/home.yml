@@ -1,0 +1,34 @@
+# Content for the home page (layout: home). Edit freely — no code changes needed.
+
+status: ""          # optional pill at the top of the hero; blank = hidden
+greeting_line: ""               # optional small line above your name; blank = hidden
+tagline:                       # rendered as "a · b · c" with a blinking cursor
+  - "Security Researcher"
+  - "Threat Hunter"
+  - "I build very cool stuff ;)"
+
+greeting: "Hey there."
+intro: >-
+  I'm **Maharram**, a security researcher focused on threat hunting, vulnerability research
+  and red teaming. Away from the keyboard I tinker with SIGINT and RF (radios, LoRa and
+  anything else that transmits) and build tools along the way. This is a broad blog, from hacking
+  to ham radios. Don't get lost!
+
+# Section headings and intros (single-page layout)
+certifications_title: "Certifications"
+certifications_intro: "Hands-on certifications in threat hunting and penetration testing."
+hackthebox_title: "HackTheBox"
+hackthebox_intro: "Walkthroughs of retired Hack The Box machines and challenges."
+htb_profile: ""          # e.g. https://app.hackthebox.com/profile/<id> — blank hides the link
+projects_title: "Projects"
+projects_intro: "Things I've built, broken, or automated."
+
+# Small print shown at the end of the About card
+disclosure: "Content here is for education. Writeups cover only retired machines or challenges whose rules permit publication, and nothing here comes from employer or client environments."
+
+# Little characters peeking out from behind your photo (up to 6, placed clockwise from top-left).
+# Use transparent PNG/WebP files (~150-250px tall) saved in /images/peekers/. Empty list = none shown.
+peekers: []
+#  - image: "/images/peekers/character.png"
+#    slot: 1      # 1 top-left · 2 top-right · 3 right · 4 bottom-right · 5 bottom-left · 6 left
+#    size: m      # s · m · l

@@ -1,0 +1,66 @@
+/* ==========================================================================
+    HACKER THEME - LIGHT VERSION ("daylight terminal")
+    Off-white with a faint green tint; a deeper green that passes contrast on light.
+    ========================================================================== */
+
+/* Color codes used for the theme */
+$primary-color              : #0b7a43;
+$gray                       : #5b6b62;
+$dark-gray                  : mix(#000, $gray, 40%);
+$darker-gray                : mix(#000, $gray, 60%);
+$light-gray                 : mix(#fff, $gray, 50%);
+$lighter-gray               : mix(#fff, $gray, 90%);
+
+/* Color codes used for the site */
+$danger-color               : #c93c37;
+$info-color                 : #1f6feb;
+$notice-color               : #5b6b62;
+$success-color              : #0b7a43;
+$warning-color              : #b26a00;
+
+/* Other basic settings for the template */
+$border-radius              : 4px;
+$box-shadow                 : 0 1px 1px rgba(0, 0, 0, 0.08);
+$global-transition          : all 0.2s ease-in-out;
+$masthead-height            : 70px;
+$navicon-width              : 28px;
+$navicon-height             : 4px;
+$sidebar-link-max-width     : 250px;
+$sidebar-screen-min-width   : 1024px;
+
+:root {
+    --global-base-color                 : #{$primary-color};
+    --global-bg-color                   : #faf9f6;
+    --global-footer-bg-color            : #f2f1ec;
+    --global-border-color               : #e4e2db;
+    --global-dark-border-color          : #cfccc2;
+    --global-code-background-color      : #efeee8;
+    --global-code-text-color            : #134e30;
+    --global-fig-caption-color          : #{$gray};
+    --global-link-color                 : #0b7a43;
+    --global-link-color-hover           : #075c32;
+    --global-link-color-visited         : #2d7a52;
+    --global-masthead-link-color        : #1b2420;
+    --global-masthead-link-color-hover  : #0b7a43;
+    --global-text-color                 : #1b2420;
+    --global-text-color-light           : #{$gray};
+    --global-thead-color                : #efeee8;
+    --global-selection-bg-color         : rgba(11, 122, 67, 0.2);
+    --global-selection-text-color       : #1b2420;
+
+    /* Theme extras used by the custom components */
+    --hx-accent                         : #0b7a43;
+    --hx-accent-strong                  : #075c32;
+    --hx-glow                           : rgba(11, 122, 67, 0.14);
+    --hx-surface                        : #ffffff;
+    --hx-hero-art                       : url("../../images/hero/waterfall-light.svg");
+    --hx-pill-bg                        : #f1f0eb;
+    --hx-pill-bg-hover                  : #e6f2ea;
+    --hx-tile-bg                        : linear-gradient(160deg, #f3faf5 0%, #f4f6fa 100%);
+    --hx-card-shadow                    : 0 1px 2px rgba(16, 24, 20, 0.04), 0 4px 16px rgba(16, 24, 20, 0.05);
+    --hx-hero-bg                        : linear-gradient(135deg, #e6f4ec 0%, #eaf1f8 60%, #f1eef9 100%);
+    --hx-hero-text                      : #12201a;
+    --hx-hero-muted                     : #5b6b62;
+    --hx-hero-accent                    : #0b7a43;
+    --hx-hero-grid                      : rgba(11, 122, 67, 0.07);
+}

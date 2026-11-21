@@ -1,0 +1,38 @@
+{% include base_path %}
+<div class="masthead">
+  <div class="masthead__inner-wrap hx-nav">
+    <a class="hx-nav__brand" href="{{ base_path }}/">{{ site.title }}</a>
+
+    <a class="hx-nav__ghost" href="{{ base_path }}/#shell" aria-label="Open the hidden shell" title="there's a ghost in this shell">
+      <svg class="hx-ghost" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+        <path class="hx-ghost__body" d="M5 20.5V11a7 7 0 0 1 14 0v9.5l-2.33-1.75-2.34 1.75L12 18.75l-2.33 1.75-2.34-1.75z"/>
+        <path class="hx-ghost__eye" d="M8.4 9.6l2 1.6-2 1.6"/>
+        <path class="hx-ghost__cursor" d="M13.2 12.9h2.6"/>
+      </svg>
+      <svg class="hx-ghost__arrow" viewBox="0 0 12 12" width="11" height="11" aria-hidden="true" focusable="false"><path d="M6 2v8M2.8 6.8 6 10l3.2-3.2"/></svg>
+    </a>
+
+    <div class="masthead__menu hx-nav__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <ul class="visible-links">
+          {% if site.author.github %}
+          <li class="masthead__menu-item persist hx-nav__icon">
+            <a href="https://github.com/{{ site.author.github }}" aria-label="GitHub" title="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+          </li>
+          {% endif %}
+          {% for link in site.data.navigation.main %}
+            {% if link.url contains 'http' %}{% assign domain = '' %}{% else %}{% assign domain = base_path %}{% endif %}
+            <li class="masthead__menu-item {% if page.url contains link.url and link.url != '/' %}selected{% endif %}">
+              <a href="{{ domain }}{{ link.url }}">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+          <li id="theme-toggle" class="masthead__menu-item persist tail">
+            <button type="button" aria-label="Toggle color theme"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></button>
+          </li>
+        </ul>
+        <button class="greedy-nav__toggle" type="button" aria-label="More pages"><span class="navicon"></span></button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>

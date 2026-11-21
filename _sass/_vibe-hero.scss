@@ -1,0 +1,87 @@
+/* ==========================================================================
+   Vibe: hero + page texture ("SIGINT dossier")
+   Monochrome ink on warm paper, the site green reserved for real signals.
+   Art: images/hero/waterfall-{light,dark}.svg (generated, original), grain tile
+   images/hero/paper-{light,dark}.svg. Overrides _home / _editorial / _certpage.
+   ========================================================================== */
+
+:root {
+  --vh-art        : none;   /* hero art removed at the owner's request (waterfall-*.svg kept for reference) */
+  --vh-cert-art   : none;   /* cert header art removed at the owner's request (certhead-*.svg kept) */
+  --vh-grain      : url("../../images/hero/paper-light.svg");
+  /* warm paper plate, one step darker than the page so the hero reads as a printed sheet */
+  --vh-plate      : linear-gradient(170deg, #f5f3ed 0%, #f1eee6 55%, #ece8de 100%);
+  /* veil over the art on narrow screens, where the name sits on top of it */
+  --vh-veil       : rgba(243, 241, 234, 0.82);
+  --vh-grid       : rgba(27, 36, 32, 0.045);
+  --vh-accent     : #086a3c;   /* site green #0b7a43, one step deeper: holds >4.5:1 on the darker paper plate + art */
+  --vh-border     : #dcd8cd;
+  --vh-halo       : #f2efe8;
+}
+
+html[data-theme="dark"] {
+  --vh-art        : none;
+  --vh-cert-art   : none;
+  --vh-grain      : url("../../images/hero/paper-dark.svg");
+  --vh-plate      : linear-gradient(170deg, #232830 0%, #1f242c 55%, #1c2027 100%);
+  --vh-veil       : rgba(30, 35, 43, 0.84);
+  --vh-grid       : rgba(230, 237, 243, 0.035);
+  --vh-accent     : #6fd3a3;
+  --vh-border     : #333c47;
+  --vh-halo       : #20252d;
+}
+
+/* ---------- Page: barely-there paper grain + halftone screen ---------- */
+body {
+  background-image: var(--vh-grain);
+  background-size: 240px 240px;
+}
+
+/* ---------- Hero ---------- */
+.hx-hero {
+  --hx-hero-accent: var(--vh-accent);
+  border-color: var(--vh-border);
+  background:
+    var(--vh-grain) 0 0 / 240px 240px repeat,
+    var(--vh-art) right top / cover no-repeat,
+    var(--vh-plate);
+}
+
+/* blueprint grid: ink instead of green, finer, fading out downward (hero + cert header) */
+.hx-hero .hx-hero__grid,
+.hx-certhead .hx-hero__grid {
+  background-image:
+    linear-gradient(var(--vh-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--vh-grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: linear-gradient(to bottom, #000 20%, transparent 90%);
+}
+
+/* ---------- Detail pages (cert header): same plate + drawing language, quieter ---------- */
+.hx-certhead {
+  border-color: var(--vh-border);
+  background:
+    var(--vh-grain) 0 0 / 240px 240px repeat,
+    var(--vh-cert-art) right top / auto 100% no-repeat,
+    var(--vh-plate);
+}
+.hx-certhead { --hx-hero-accent: var(--vh-accent); }
+
+/* Phones: the name spans the full width, so veil the art behind it */
+@media (max-width: 767px) {
+  .hx-hero {
+    background:
+      var(--vh-grain) 0 0 / 240px 240px repeat,
+      var(--vh-art) right top / cover no-repeat,
+      var(--vh-plate);
+  }
+}
+
+/* Map-label halo: the tagline sits over the ghosted drawing, so give its glyphs a
+   paper-coloured keyline. Keeps local contrast >= 4.5:1 wherever the art passes behind. */
+.hx-hero__tagline,
+.hx-hero__name {
+  text-shadow:
+    0 0 1px var(--vh-halo), 0 0 2px var(--vh-halo), 0 0 3px var(--vh-halo),
+    0 0 3px var(--vh-halo), 0 0 8px var(--vh-halo), 0 0 14px var(--vh-halo);
+}

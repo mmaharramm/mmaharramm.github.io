@@ -1,0 +1,73 @@
+/* ==========================================================================
+    HACKER THEME - DARK VERSION ("slate")
+    Soft slate surfaces (not pitch black), comfortable grey-white text, one calm green accent.
+    ========================================================================== */
+
+/* Color codes used for the theme */
+$primary-color              : #4cc38a;
+$gray                       : #9aa7b4;
+$dark-gray                  : mix(#000, $gray, 40%);
+$darker-gray                : mix(#000, $gray, 60%);
+$light-gray                 : mix(#fff, $gray, 50%);
+
+$background                 : #1b2028;
+$background-light           : #232a33;
+$background-lighter         : #2b333d;
+$text                       : #e3e8ee;
+$link                       : #5ccf97;
+$link-dark                  : #86e0b3;
+$link-light                 : #4cc38a;
+
+/* Color codes used for the site */
+$danger-color               : #ff6b6b;
+$info-color                 : #58a6ff;
+$notice-color               : #8b98a5;
+$success-color              : #3ddc84;
+$warning-color              : #f0b429;
+
+/* Other basic settings for the template */
+$border-radius              : 4px;
+$box-shadow                 : 0 1px 1px rgba(0, 0, 0, 0.25);
+$global-transition          : all 0.2s ease-in-out;
+$masthead-height            : 70px;
+$navicon-width              : 28px;
+$navicon-height             : 4px;
+$sidebar-link-max-width     : 250px;
+$sidebar-screen-min-width   : 1024px;
+
+html[data-theme="dark"] {
+    --global-base-color                 : #{$primary-color};
+    --global-bg-color                   : #{$background};
+    --global-footer-bg-color            : #171c23;
+    --global-border-color               : #333c47;
+    --global-dark-border-color          : #3d4753;
+    --global-code-background-color      : #262e38;
+    --global-code-text-color            : #9fe8bf;
+    --global-fig-caption-color          : #{$gray};
+    --global-link-color                 : #{$link};
+    --global-link-color-hover           : #{$link-dark};
+    --global-link-color-visited         : #{$link-light};
+    --global-masthead-link-color        : #{$text};
+    --global-masthead-link-color-hover  : #{$primary-color};
+    --global-text-color                 : #{$text};
+    --global-text-color-light           : #{$gray};
+    --global-thead-color                : #{$background-light};
+    --global-selection-bg-color         : rgba(92, 207, 151, 0.3);
+    --global-selection-text-color       : #ffffff;
+
+    /* Theme extras used by the custom components */
+    --hx-accent                         : #5ccf97;
+    --hx-accent-strong                  : #86e0b3;
+    --hx-glow                           : rgba(92, 207, 151, 0.14);
+    --hx-surface                        : #222932;
+    --hx-hero-art                       : url("../../images/hero/waterfall-dark.svg");
+    --hx-pill-bg                        : #2a323c;
+    --hx-pill-bg-hover                  : #2f3a37;
+    --hx-tile-bg                        : linear-gradient(160deg, #24302b 0%, #232a35 100%);
+    --hx-card-shadow                    : 0 1px 2px rgba(0, 0, 0, 0.25);
+    --hx-hero-bg                        : linear-gradient(135deg, #22302b 0%, #212a35 60%, #262636 100%);
+    --hx-hero-text                      : #f0f4f8;
+    --hx-hero-muted                     : #a3b0bd;
+    --hx-hero-accent                    : #6fd3a3;
+    --hx-hero-grid                      : rgba(255, 255, 255, 0.045);
+}

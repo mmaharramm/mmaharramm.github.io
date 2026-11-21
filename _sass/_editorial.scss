@@ -1,0 +1,180 @@
+/* ==========================================================================
+   Editorial layer (inspired by thijs.net, kept in our hacking style)
+   - warm paper background, flat white cards with gently tilted edges
+   - big confident section headings, still prefixed with the ">" prompt
+   - monospace navigation, pill-style contact links
+   - certification tiles: date chip, badge visual, white label box
+   ========================================================================== */
+
+$ed-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+/* ---------- Navigation: monospace, quiet ---------- */
+.greedy-nav {
+  .hx-nav__brand { font-family: $ed-mono; font-weight: 700; letter-spacing: -0.02em; }
+  .visible-links a,
+  .hidden-links a { font-family: $ed-mono; font-size: 0.84rem; font-weight: 500; letter-spacing: -0.01em; }
+}
+
+/* ---------- Cards: flat, with alternating tilted edges ----------
+   The card is skewed; its direct children are skewed back so text stays level. */
+.hx-home > .hx-card {
+  --hx-tilt: -0.9deg;
+  transform: skewY(var(--hx-tilt));
+  border-radius: 14px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02), 0 10px 30px -18px rgba(20, 24, 22, 0.18);
+  margin-top: 2.25rem;
+
+  > * { transform: skewY(calc(var(--hx-tilt) * -1)); }
+}
+.hx-home > .hx-card:nth-of-type(even) { --hx-tilt: 0.9deg; }
+.hx-home > .hx-card--about { margin-top: 0.75rem; }
+
+@include breakpoint($medium) {
+  .hx-home > .hx-card { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+}
+
+/* ---------- Headings ---------- */
+.hx-card__greeting {
+  font-size: clamp(2rem, 4.2vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.hx-card > .hx-section-title:first-child,
+.hx-certsec > .hx-section-title:first-child {
+  font-size: clamp(1.75rem, 3.6vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 0.35rem;
+
+  .hx-green { font-family: $ed-mono; font-weight: 700; margin-right: 0.15em; }
+}
+.hx-section-intro { font-size: 1.02rem; margin-bottom: 1.6rem; }
+
+/* ---------- Contact pills ---------- */
+.hx-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li { margin: 0; }
+}
+.hx-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 7px;
+  background: var(--hx-pill-bg);
+  color: var(--global-text-color);
+  font-family: $ed-mono;
+  font-size: 0.82rem;
+  text-decoration: none;
+  transition: background-color .15s ease, color .15s ease;
+  i { font-size: 0.9em; }
+  &:hover, &:focus-visible { background: var(--hx-pill-bg-hover); color: var(--hx-accent); }
+}
+
+/* ---------- Certification tiles ---------- */
+.hx-tiles {
+  display: grid;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.hx-tile {
+  position: relative;
+  height: 15rem;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid var(--global-border-color);
+  background: var(--hx-tile-bg);
+  box-shadow: 0 8px 22px -14px rgba(20, 24, 22, 0.35);
+  transition: transform .25s cubic-bezier(.4, 0, .2, 1), box-shadow .25s ease;
+
+  &:hover, &:focus-within { transform: translateY(-3px); box-shadow: 0 16px 30px -16px rgba(20, 24, 22, 0.45); }
+}
+/* The visual: badge on a faint terminal grid */
+.hx-tile__visual {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding-bottom: 3.2rem;
+  background-image:
+    linear-gradient(var(--hx-hero-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hx-hero-grid) 1px, transparent 1px);
+  background-size: 22px 22px;
+
+  img { width: 112px; height: 112px; object-fit: contain; transition: transform .35s cubic-bezier(.4, 0, .2, 1); filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.12)); }
+  b { font-family: $ed-mono; font-size: 1.8rem; color: var(--hx-accent); }
+}
+.hx-tile:hover .hx-tile__visual img { transform: scale(1.06) rotate(-2deg); }
+
+.hx-tile__chip,
+.hx-tile__verify {
+  position: absolute;
+  top: 0.6rem;
+  z-index: 2;
+  padding: 0.1rem 0.45rem;
+  border-radius: 5px;
+  background: var(--hx-surface);
+  border: 1px solid var(--global-border-color);
+  font-family: $ed-mono;
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: var(--global-text-color);
+}
+.hx-tile__chip { left: 0.6rem; }
+.hx-tile__verify {
+  right: 0.6rem;
+  color: var(--hx-accent);
+  text-decoration: none;
+  font-weight: 600;
+  &:hover, &:focus-visible { border-color: var(--hx-accent); color: var(--hx-accent); }
+}
+
+/* White label box, bottom-left. A transparent link covers the whole tile. */
+.hx-tile__link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  &:focus-visible { outline: 2px solid var(--hx-accent); outline-offset: -2px; }
+}
+.hx-tile__label {
+  position: absolute;
+  left: 0.6rem;
+  bottom: 0.6rem;
+  z-index: 1;
+  max-width: calc(100% - 1.2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 7px;
+  border: 1px solid var(--global-border-color);
+  background: var(--hx-surface);
+  box-shadow: 0 4px 10px -6px rgba(0, 0, 0, 0.25);
+  color: var(--global-text-color);
+  pointer-events: none;
+}
+.hx-tile:hover .hx-tile__title, .hx-tile:focus-within .hx-tile__title { color: var(--hx-accent); }
+.hx-tile__title { font-size: 1.02rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.25; }
+.hx-tile__meta { font-family: $ed-mono; font-size: 0.72rem; color: var(--global-text-color-light); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hx-tile, .hx-tile__visual img, .hx-pill { transition: none; }
+  .hx-tile:hover, .hx-tile:focus-within { transform: none; }
+  .hx-tile:hover .hx-tile__visual img { transform: none; }
+}
+
+/* ---------- Hero art: an SDR spectrum waterfall (images/hero/), fading out behind the name ---------- */
+.hx-hero {
+  background: var(--hx-hero-art) right top / cover no-repeat, var(--hx-hero-bg);
+}

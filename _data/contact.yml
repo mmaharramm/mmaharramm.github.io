@@ -1,0 +1,15 @@
+# Compact contact row inside the About card (nav "About" scrolls here).
+# The email is written out; every other link shows as an icon only.
+email: ""     # blank = hidden
+
+# icon: Font Awesome class. label: tooltip + screen-reader text. Add rows as you like.
+links:
+  - icon: "fab fa-linkedin-in"
+    label: "LinkedIn"
+    url: "https://www.linkedin.com/in/maharram-m-55300a304/"
+  # - icon: "fab fa-github"
+  #   label: "GitHub"
+  #   url: "https://github.com/<username>"
+  # - icon: "fas fa-cube"
+  #   label: "Hack The Box"
+  #   url: "https://app.hackthebox.com/profile/<id>"

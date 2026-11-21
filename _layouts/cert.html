@@ -1,0 +1,92 @@
+---
+layout: default
+---
+{% include base_path %}
+{% assign c = page %}
+{% assign certs = site.certifications %}
+
+<main class="hx-home hx-certpage" id="main">
+
+  <nav class="hx-crumb" aria-label="Breadcrumb">
+    <a href="{{ '/#certifications' | relative_url }}" class="hx-crumb__back"><span aria-hidden="true">&larr;</span> All certifications</a>
+    <span class="hx-crumb__path" aria-hidden="true">~/certifications/<b>{{ c.code | downcase }}</b></span>
+  </nav>
+
+  <!-- ===== Header ===== -->
+  <header class="hx-certhead">
+    <div class="hx-hero__grid" aria-hidden="true"></div>
+    <div class="hx-certhead__badge">
+      {% if c.badge %}<img src="{{ c.badge | relative_url }}" alt="{{ c.code }} badge" width="132" height="132">{% else %}<span class="hx-cert__code">{{ c.code }}</span>{% endif %}
+    </div>
+    <div class="hx-certhead__body">
+      <p class="hx-certhead__eyebrow"><span class="hx-certhead__code">{{ c.code }}</span> issued by {{ c.issuer }}</p>
+      <h1 class="hx-certhead__title">{{ c.title }}</h1>
+      <p class="hx-certhead__lede">{{ c.lede }}</p>
+      <div class="hx-certhead__actions">
+        {% if c.verify %}<a class="hx-btn hx-btn--primary" href="{{ c.verify }}" target="_blank" rel="noopener noreferrer"><i class="fas fa-circle-check" aria-hidden="true"></i> {{ c.verify_label | default: "Verify credential" }}<span class="hx-sr"> (opens in a new tab)</span></a>{% endif %}
+        {% if c.certificate %}<a class="hx-btn" href="#certificate"><i class="fas fa-award" aria-hidden="true"></i> View certificate</a>{% endif %}
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Certificate ===== -->
+  {% if c.certificate %}
+  <section class="hx-card hx-certsec hx-section" id="certificate" aria-labelledby="cert-h">
+    <h2 class="hx-section-title" id="cert-h"><span class="hx-green">&gt;</span> Certificate</h2>
+    <figure class="hx-certimg"{% if c.certificate_max %} style="--hx-certimg-max: {{ c.certificate_max }}px"{% endif %}>
+      <a href="{{ c.certificate | relative_url }}" target="_blank" rel="noopener">
+        <img src="{{ c.certificate | relative_url }}" alt="{{ c.title }} certificate issued by {{ c.issuer }}" loading="lazy">
+      </a>
+      <figcaption>Select the image to open it at full size.</figcaption>
+    </figure>
+  </section>
+  {% endif %}
+
+  <!-- ===== What it covers ===== -->
+  {% if c.domains %}
+  <section class="hx-card hx-certsec" aria-labelledby="covers">
+    <h2 class="hx-section-title" id="covers"><span class="hx-green">&gt;</span> What it covers</h2>
+    <p class="hx-section-intro">Based on the official exam objectives. Each area was tested, not just studied.</p>
+    <ol class="hx-domains">
+      {% for d in c.domains %}
+      <li class="hx-domain">
+        <div class="hx-domain__head">
+          <span class="hx-domain__num" aria-hidden="true">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+          <h3 class="hx-domain__title">{{ d.title }}</h3>
+          {% if d.weight %}<span class="hx-domain__weight">{{ d.weight }}%<span class="hx-sr"> of the exam</span></span>{% endif %}
+        </div>
+        {% if d.weight %}<span class="hx-domain__bar" aria-hidden="true"><i style="width: {{ d.weight | times: 2 | at_most: 100 }}%"></i></span>{% endif %}
+        <ul>{% for pt in d.points %}<li>{{ pt }}</li>{% endfor %}</ul>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+  {% endif %}
+
+  <!-- ===== On the job ===== -->
+  {% if c.on_the_job %}
+  <section class="hx-card hx-certsec hx-certsec--job" aria-labelledby="job">
+    <h2 class="hx-section-title" id="job"><span class="hx-green">&gt;</span> What this means on the job</h2>
+    <ul class="hx-job">
+      {% for j in c.on_the_job %}<li><span class="hx-job__mark" aria-hidden="true">$</span>{{ j }}</li>{% endfor %}
+    </ul>
+    {% if c.tools %}
+    <p class="hx-tools"><span class="hx-tools__label">Tooling</span>{% for t in c.tools %}<span class="hx-chip">{{ t }}</span>{% endfor %}</p>
+    {% endif %}
+  </section>
+  {% endif %}
+
+  <!-- ===== Prev / next ===== -->
+  {% if certs.size > 1 %}
+  <nav class="hx-certnav" aria-label="Other certifications">
+    {% for x in certs %}{% if x.url == page.url %}{% assign i = forloop.index0 %}{% endif %}{% endfor %}
+    {% assign last = certs.size | minus: 1 %}
+    {% assign pi = i | minus: 1 %}{% assign ni = i | plus: 1 %}
+    {% if i > 0 %}{% assign prev = certs[pi] %}{% else %}{% assign prev = certs[last] %}{% endif %}
+    {% if i < last %}{% assign next = certs[ni] %}{% else %}{% assign next = certs[0] %}{% endif %}
+    <a class="hx-certnav__link" href="{{ prev.url | relative_url }}"><span class="hx-certnav__dir">&larr; Previous</span><span class="hx-certnav__name">{{ prev.code }} &middot; {{ prev.title }}</span></a>
+    <a class="hx-certnav__link hx-certnav__link--next" href="{{ next.url | relative_url }}"><span class="hx-certnav__dir">Next &rarr;</span><span class="hx-certnav__name">{{ next.code }} &middot; {{ next.title }}</span></a>
+  </nav>
+  {% endif %}
+
+</main>

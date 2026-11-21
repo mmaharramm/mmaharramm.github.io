@@ -1,0 +1,403 @@
+/* ==========================================================================
+   Home page (layout: home): terminal hero, spinning name ring, timeline,
+   highlights with redaction bars, post cards. Original design, no external assets.
+   ========================================================================== */
+
+$hx-green: #3ddc84;
+$hx-blue:  #58a6ff;
+$hx-term:  #0d1117;
+$hx-mono:  ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+.hx-home {
+  max-width: 1100px;
+  position: relative;
+}
+
+.hx-green { color: var(--hx-accent); }
+.hx-hero .hx-green { color: var(--hx-hero-accent); }
+.hx-hero .hx-blue  { color: var(--hx-hero-muted); }
+.hx-blue  { color: $hx-blue; }
+
+/* ---------- Hero ---------- */
+/* Colours come from the theme (--hx-hero-*): soft mint/blue in light mode, slate in dark mode. */
+.hx-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid var(--global-border-color);
+  background: var(--hx-hero-bg);
+  color: var(--hx-hero-text);
+  padding: 2.5rem 1.5rem 9rem;
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+
+  @include breakpoint($medium) { padding: 4.5rem 4rem 7rem; clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); }
+}
+/* No profile photo: drop the extra bottom room that was left for its overlap. */
+.hx-home--no-avatar .hx-hero { padding-bottom: 4.5rem;
+  @include breakpoint($medium) { padding-bottom: 5rem; }
+}
+
+.hx-hero__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--hx-hero-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hx-hero-grid) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: linear-gradient(to bottom, #000 30%, transparent 95%);
+  pointer-events: none;
+}
+
+.hx-hero__inner { position: relative; }
+
+.hx-hero__prompt {
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin: 0 0 0.4rem;
+  color: var(--hx-hero-muted);
+}
+
+.hx-hero__name {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0 0 0.9rem;
+  color: var(--hx-hero-text);
+}
+
+.hx-hero__tagline {
+  font-family: $hx-mono;
+  font-size: clamp(0.85rem, 2vw, 1.05rem);
+  line-height: 1.6;
+  color: var(--hx-hero-accent);
+  margin: 0;
+  max-width: 46rem;
+}
+
+.hx-cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  margin-left: 0.25em;
+  vertical-align: text-bottom;
+  background: var(--hx-hero-accent);
+  animation: hx-blink 1.1s steps(1) infinite;
+}
+
+@keyframes hx-blink { 50% { opacity: 0; } }
+
+/* ---------- Avatar + spinning ring ---------- */
+.hx-avatar {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: -78px auto 0;
+  z-index: 2;
+
+  @include breakpoint($medium) {
+    position: absolute;
+    right: 5%;
+    top: 190px;          /* centre stays on the hero's lower edge */
+    width: 270px;
+    height: 270px;
+    margin: 0;
+  }
+}
+
+/* Characters peeking out from behind the photo (see `peekers` in _data/home.yml) */
+.hx-peekers { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+
+.hx-peeker {
+  position: absolute;
+  height: auto;
+  opacity: 0;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.12));
+  transform: translate(var(--hx-peek-x0), var(--hx-peek-y0)) rotate(var(--hx-peek-r));
+  animation: hx-peek-in 0.7s cubic-bezier(.34, 1.56, .64, 1) forwards;
+  transition: transform 0.35s cubic-bezier(.34, 1.56, .64, 1);
+
+  /* slot positions, clockwise from top-left; x0/y0 = hidden start (behind the photo) */
+  &--slot-1 { left: -6%;  top: -8%;   --hx-peek-r: -18deg; --hx-peek-x0: 30%;  --hx-peek-y0: 30%;  --hx-peek-pop: translate(-6px, -6px);  animation-delay: 0.35s; }
+  &--slot-2 { right: -6%; top: -10%;  --hx-peek-r: 16deg;  --hx-peek-x0: -30%; --hx-peek-y0: 30%;  --hx-peek-pop: translate(6px, -6px);   animation-delay: 0.5s; }
+  &--slot-3 { right: -22%; top: 34%;  --hx-peek-r: 8deg;   --hx-peek-x0: -40%; --hx-peek-y0: 0%;   --hx-peek-pop: translate(8px, 0);      animation-delay: 0.65s; }
+  &--slot-4 { right: 0%;  bottom: -14%; --hx-peek-r: 12deg; --hx-peek-x0: -25%; --hx-peek-y0: -30%; --hx-peek-pop: translate(5px, 6px);  animation-delay: 0.8s; }
+  &--slot-5 { left: 0%;   bottom: -14%; --hx-peek-r: -12deg; --hx-peek-x0: 25%; --hx-peek-y0: -30%; --hx-peek-pop: translate(-5px, 6px); animation-delay: 0.95s; }
+  &--slot-6 { left: -22%; top: 34%;   --hx-peek-r: -8deg;  --hx-peek-x0: 40%;  --hx-peek-y0: 0%;   --hx-peek-pop: translate(-8px, 0);     animation-delay: 1.1s; }
+
+  /* sizes (relative to the photo box) */
+  &--s { width: 34%; }
+  &--m { width: 46%; }
+  &--l { width: 74%; }
+
+  /* the big top-left slot leans further out so the character's lower body stays behind the photo */
+  &--slot-1.hx-peeker--l { left: -24%; top: -21%; --hx-peek-r: -9deg; }
+}
+
+@keyframes hx-peek-in {
+  to { opacity: 1; transform: translate(0, 0) rotate(var(--hx-peek-r)); }
+}
+
+.hx-avatar:hover .hx-peeker { transform: var(--hx-peek-pop) rotate(var(--hx-peek-r)) scale(1.06); opacity: 1; animation: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hx-peeker { animation: none; opacity: 1; transform: rotate(var(--hx-peek-r)); transition: none; }
+  .hx-avatar:hover .hx-peeker { transform: rotate(var(--hx-peek-r)); }
+}
+
+.hx-avatar__img {
+  position: absolute;
+  z-index: 1;
+  inset: 26px;
+  width: calc(100% - 52px);
+  height: calc(100% - 52px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--hx-accent);
+  box-shadow: 0 0 0 6px var(--global-bg-color), 0 8px 30px rgba(0, 0, 0, 0.12);
+  background: var(--global-bg-color);
+}
+
+
+/* ---------- Content card ---------- */
+.hx-card {
+  position: relative;
+  margin-top: 1.5rem;
+  padding: 2rem 1.5rem;
+  border: 1px solid var(--global-border-color);
+  border-radius: 18px;
+  background: var(--hx-surface);
+  box-shadow: var(--hx-card-shadow);
+
+  @include breakpoint($medium) {
+    margin-top: 1.5rem;
+    padding: 2.5rem 4rem;
+  }
+}
+
+.hx-card--about {
+  @include breakpoint($medium) {
+    margin-top: 0.5rem;
+    padding: 3rem 4rem;
+  }
+}
+.hx-avatar__img--blank { display: block; }   /* empty ring, same size as the photo */
+
+.hx-card--about.hx-card--has-avatar {
+  @include breakpoint($medium) { padding-right: 330px; }   /* keep text clear of the avatar */
+}
+
+/* Single-page sections: land below the fixed nav bar when jumped to */
+.hx-section { scroll-margin-top: 90px; }
+.hx-hero    { scroll-margin-top: 90px; }
+
+.hx-card > .hx-section-title:first-child { margin-top: 0; font-size: 1.4rem; }
+
+.hx-section-intro {
+  color: var(--global-text-color-light);
+  margin-bottom: 1.2rem;
+}
+
+.hx-subtitle {
+  font-size: 1rem;
+  margin: 1.5rem 0 0.5rem;
+  border: 0;
+}
+
+.hx-empty {
+  font-family: $hx-mono;
+  font-size: 0.85rem;
+  color: var(--global-text-color-light);
+}
+
+.hx-disclosure {
+  margin: 1.5rem 0 0;
+  font-size: 0.8rem;
+  color: var(--global-text-color-light);
+}
+
+.hx-note {
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+  p { margin: 0; }
+}
+
+.hx-card__greeting {
+  margin-top: 0;
+  font-size: 2rem;
+  border: 0;
+}
+
+.hx-intro p { margin-bottom: 1rem; }
+
+/* ---------- Timeline ---------- */
+.hx-timeline {
+  list-style: none;
+  margin: 1.2rem 0 1.8rem;
+  padding: 0 0 0 1.2rem;
+  border-left: 2px solid var(--global-border-color);
+}
+
+.hx-timeline__item {
+  position: relative;
+  margin: 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: calc(-1.2rem - 6px);
+    top: 0.3em;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--global-border-color);
+  }
+
+  &--now::before { background: var(--hx-accent); }
+}
+
+.hx-timeline__label {
+  font-family: $hx-mono;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--global-text-color-light);
+}
+
+.hx-timeline__item--now .hx-timeline__label { color: var(--hx-accent); }
+
+.hx-timeline__text { font-size: 1.05rem; }
+
+@keyframes hx-pulse {
+  70%  { box-shadow: 0 0 0 8px rgba(61, 220, 132, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(61, 220, 132, 0); }
+}
+
+/* ---------- Highlights + redaction ---------- */
+.hx-section-title {
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  border: 0;
+  margin: 1.5rem 0 0.8rem;
+}
+
+.hx-highlights {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    gap: 0.8rem;
+    align-items: baseline;
+    margin-bottom: 0.7rem;
+  }
+
+  i { color: var(--hx-accent); flex-shrink: 0; }
+}
+
+.hx-redacted {
+  font-family: $hx-mono;
+  color: #000;
+  background: #000;
+  letter-spacing: -0.1em;
+  padding: 0 0.15em;
+  user-select: none;
+  html[data-theme="dark"] & { outline: 1px solid #30363d; }
+}
+
+/* ---------- Post cards ---------- */
+.hx-posts { margin-top: 2.5rem; }
+
+.hx-posts__grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+
+  @include breakpoint($medium) { grid-template-columns: repeat(2, 1fr); }
+}
+
+.hx-post {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--global-border-color);
+  border-left: 3px solid var(--hx-accent);
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+
+  &:hover, &:focus-visible {
+    transform: translateY(-2px);
+    border-color: var(--hx-accent);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.hx-post__meta {
+  font-family: $hx-mono;
+  font-size: 0.75rem;
+  color: var(--global-text-color-light);
+}
+
+.hx-post__title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--global-link-color);
+}
+
+.hx-post__excerpt {
+  font-size: 0.9rem;
+  color: var(--global-text-color-light);
+}
+
+.hx-posts__more {
+  font-family: $hx-mono;
+  font-size: 0.85rem;
+  margin-top: 1rem;
+}
+
+/* ---------- Motion preferences ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .hx-cursor, .hx-timeline__item--now::before { animation: none; }
+  .hx-post { transition: none; }
+}
+
+/* ---------- Hero status line ---------- */
+.hx-hero__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 1.1rem;
+  padding: 0.3rem 0.8rem 0.3rem 0.65rem;
+  border: 1px solid rgba(61, 220, 132, 0.35);
+  border-radius: 999px;
+  background: rgba(61, 220, 132, 0.08);
+  font-family: $hx-mono;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: #c9f7dc;
+}
+
+.hx-hero__status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $hx-green;
+}
+
+/* Decode effect: keep the glyph-cycling text from jittering the layout */
+.hx-hero__name.is-decoding { white-space: nowrap; }
+/* Phones: let the name wrap (also mid-decode) instead of running off the card. */
+@media (max-width: 479px) {
+  .hx-hero__name { font-size: clamp(1.6rem, 8vw, 2.2rem); }
+}
+@media (max-width: 767px) {
+  .hx-hero__name.is-decoding { white-space: normal; }
+}
+
+@media (prefers-reduced-motion: reduce) { .hx-hero__status-dot { animation: none; } }

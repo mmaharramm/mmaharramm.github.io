@@ -1,0 +1,168 @@
+# Site configuration (AcademicPages, trimmed + hardened for a security blog)
+# Restart `jekyll serve` after editing this file — it is not live-reloaded.
+
+locale                   : "en-US"
+site_theme               : "hacker"    # custom: _sass/theme/_hacker_{light,dark}.scss (visitors can toggle light/dark)
+title                    : "0xMM"
+title_separator          : "-"
+name                     : &name "Maharram Maharramov"
+description              : &description "Certifications, HackTheBox writeups and projects."
+url                      : "https://mmaharramm.github.io"
+baseurl                  : "/0xMM-security-blog"
+repository               : "mmaharramm/0xMM-security-blog"
+
+# Sidebar
+author:
+  avatar           :                       # no image yet; set e.g. "logo.png" (in /images/) to fill the circle
+  avatar_slot      : true                  # keep the empty circle on the home page until then
+  name             : "Maharram Maharramov"
+  pronouns         :
+  bio              : "Security Researcher · Threat Hunter"
+  location         :
+  employer         :                       # left blank on purpose (opsec)
+  uri              :                       # personal homepage URL
+  email            :                       # public contact address, or leave blank
+  github           :                       # username
+  linkedin         :                       # username (the part after /in/)
+  twitter          :
+  bluesky          :
+  mastodon         :
+  keybase          :
+  youtube          :
+
+# Behaviour
+teaser                   :
+breadcrumbs              : false
+words_per_minute         : 160
+future                   : false           # don't publish future-dated posts early
+read_more                : "disabled"
+talkmap_link             : false
+
+# Privacy: no comments, no analytics, no third-party share widgets
+comments:
+  provider               : false
+analytics:
+  provider               : false
+
+atom_feed:
+  hide                   : false
+  path                   :
+
+og_image                 : og-image.png
+og_description           :
+twitter:
+  username               :
+social:
+  type                   : Person
+  name                   :
+  links:
+
+# Reading files
+include:
+  - _pages
+
+exclude:
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - .asset-cache
+  - .bundle
+  - .github
+  - .jekyll-assets-cache
+  - .sass-cache
+  - .ruby-version
+  - assets/js/_main.js
+  - assets/js/plugins
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - local
+  - node_modules
+  - README.md
+  - SECURITY.md
+  - tmp
+  - tools
+  - vendor
+
+keep_files:
+  - .git
+
+encoding                 : "utf-8"
+markdown_ext             : "markdown,mkdown,mkdn,mkd,md"
+
+# Conversion
+markdown                 : kramdown
+highlighter              : rouge
+lsi                      : false
+excerpt_separator        : "\n\n"
+incremental              : false
+
+kramdown:
+  input                  : GFM
+  hard_wrap              : false
+  auto_ids               : true
+  header_links           : true
+  footnote_nr            : 1
+  entity_output          : as_char
+  toc_levels             : 1..6
+  smart_quotes           : lsquo,rsquo,ldquo,rdquo
+  enable_coderay         : false
+
+# Posts: categories = hackthebox (listed under HackTheBox) | certs (listed under Certifications → Reviews)
+collections:
+  certifications:
+    output: true
+    permalink: /certifications/:name/
+    sort_by: order
+
+defaults:
+  - scope:
+      path: ""
+      type: certifications
+    values:
+      layout: cert
+      sitemap: true
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: false
+      share: false
+      related: true
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+sass:
+  sass_dir               : _sass
+  style                  : compressed
+
+permalink                : /:title/
+timezone                 : Europe/Warsaw
+
+paginate                 : 10
+paginate_path            : /page:num/
+
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-redirect-from
+
+category_archive:
+  type                   : liquid
+  path                   : /categories/
+tag_archive:
+  type                   : liquid
+  path                   : /tags/
+
+compress_html:
+  clippings              : all
+  comments               : ["<!-- ", " -->"]
+  ignore:
+    envs                 : development

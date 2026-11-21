@@ -1,0 +1,10 @@
+# Single-page navigation: each link scrolls to a section of the home page.
+main:
+  - title: "About"
+    url: /#about
+  - title: "Certifications"
+    url: /#certifications
+  - title: "HackTheBox"
+    url: /#hackthebox
+  - title: "Projects"
+    url: /#projects

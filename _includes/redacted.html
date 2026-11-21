@@ -1,0 +1,5 @@
+{%- comment -%}
+  Black redaction bar. Contains no hidden text by design: the real word must never be in the HTML.
+  Usage: {% include redacted.html %}  or  {% include redacted.html chars=12 %}
+{%- endcomment -%}
+<span class="hx-redacted" role="img" aria-label="redacted" title="redacted">{% assign n = include.chars | default: 10 %}{% for i in (1..n) %}&#9608;{% endfor %}</span>

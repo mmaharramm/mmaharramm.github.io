@@ -1,0 +1,18 @@
+# Your minimal footer. Edit freely — no template changes needed.
+# Anything left blank is simply not shown.
+
+# Shown as:  © <current year> <copyright>
+copyright: ""
+
+# Optional short line under the copyright (e.g. a motto or disclaimer). Blank = hidden.
+tagline: ""
+
+# Links shown on the copyright line, separated by " · ".
+# icon: optional Font Awesome class, e.g. "fab fa-github", "fab fa-linkedin", "fas fa-envelope", "fas fa-rss"
+links: []
+  # - label: "GitHub"
+  #   url: "https://github.com/<username>"
+  #   icon: "fab fa-github"
+  # - label: "RSS"
+  #   url: "/feed.xml"
+  #   icon: "fas fa-rss"

@@ -1,0 +1,31 @@
+# Build output / caches
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+local/
+
+# Dependencies (Gemfile.lock IS committed — it pins versions + checksums)
+/vendor/
+.bundle/
+node_modules
+
+# Secrets — never commit
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.ovpn
+id_rsa*
+*.kdbx
+
+# Raw engagement / lab material that should not be published
+loot/
+scans/
+*.pcap
+*.pcapng
+
+# OS / IDE
+.DS_Store
+.vscode/

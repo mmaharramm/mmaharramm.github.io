@@ -1,0 +1,156 @@
+---
+layout: default
+---
+{% include base_path %}
+{% assign h = site.data.home %}
+{% assign author = site.author %}
+{% capture redacted %}{% include redacted.html %}{% endcapture %}
+
+
+{% if author.avatar and author.avatar != "" %}{% assign has_avatar_img = true %}{% endif %}
+{% if has_avatar_img or author.avatar_slot %}{% assign show_avatar = true %}{% endif %}
+<div class="hx-home{% unless show_avatar %} hx-home--no-avatar{% endunless %}" id="main" role="main">
+
+  <!-- ===== Hero ===== -->
+  <header class="hx-hero" id="top">
+    <div class="hx-hero__grid" aria-hidden="true"></div>
+    <div class="hx-hero__inner">
+      {% if h.status and h.status != "" %}<p class="hx-hero__status"><span class="hx-hero__status-dot" aria-hidden="true"></span>{{ h.status }}</p>{% endif %}
+      {% if h.greeting_line and h.greeting_line != "" %}<p class="hx-hero__prompt">{{ h.greeting_line }}</p>{% endif %}
+      <h1 class="hx-hero__name" data-decode>{{ author.name }}</h1>
+      <p class="hx-hero__tagline">{{ h.tagline | join: " &middot; " }}<span class="hx-cursor" aria-hidden="true"></span></p>
+    </div>
+  </header>
+
+  {% if show_avatar %}
+  <div class="hx-avatar">
+    {% if h.peekers and h.peekers.size > 0 %}
+    <div class="hx-peekers" aria-hidden="true">
+      {% for p in h.peekers limit: 6 %}
+      <img class="hx-peeker hx-peeker--slot-{{ p.slot | default: forloop.index }} hx-peeker--{{ p.size | default: 'm' }}" src="{{ p.image | relative_url }}" alt="" decoding="async">
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% if has_avatar_img %}
+    {% if author.avatar contains "://" %}{% assign avatar_src = author.avatar %}{% else %}{% assign avatar_src = author.avatar | prepend: "/images/" | prepend: base_path %}{% endif %}
+    <img class="hx-avatar__img" src="{{ avatar_src }}" alt="{{ author.name }}" fetchpriority="high">
+    {% else %}
+    <span class="hx-avatar__img hx-avatar__img--blank" aria-hidden="true"></span>{% comment %} empty slot until the logo is added {% endcomment %}
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <!-- ===== About ===== -->
+  <section class="hx-card hx-card--about{% if show_avatar %} hx-card--has-avatar{% endif %} hx-section" id="about">
+    <h2 class="hx-card__greeting">{{ h.greeting }}</h2>
+    <div class="hx-intro">{{ h.intro | markdownify }}</div>
+
+    {% assign c = site.data.contact %}
+    <div class="hx-contact-row" id="contact">
+      {% if c.email and c.email != "" %}
+      <a class="hx-contact-row__email" href="mailto:{{ c.email }}"><i class="fas fa-envelope" aria-hidden="true"></i>{{ c.email }}</a>
+      {% endif %}
+      <ul class="hx-pills">
+        {% for l in c.links %}
+        <li><a class="hx-pill" href="{{ l.url }}"{% if l.url contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}><i class="{{ l.icon }}" aria-hidden="true"></i>{{ l.handle | default: l.label }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    {% if h.disclosure and h.disclosure != "" %}<p class="hx-disclosure">{{ h.disclosure }}</p>{% endif %}
+  </section>
+
+  <!-- ===== Certifications ===== -->
+  <section class="hx-card hx-section" id="certifications">
+    <h2 class="hx-section-title"><span class="hx-green">&gt;</span> {{ h.certifications_title }}</h2>
+    <p class="hx-section-intro">{{ h.certifications_intro }}</p>
+
+    {% if site.certifications.size > 0 %}
+    <ul class="hx-tiles">
+      {% for cert in site.certifications %}
+      <li class="hx-tile">
+        <span class="hx-tile__chip">{{ cert.issued }}</span>
+        {% if cert.verify %}<a class="hx-tile__verify" href="{{ cert.verify }}" target="_blank" rel="noopener noreferrer"><i class="fas fa-circle-check" aria-hidden="true"></i> Verify<span class="hx-sr"> {{ cert.code }} (opens in a new tab)</span></a>{% endif %}
+        <span class="hx-tile__visual" aria-hidden="true">{% if cert.badge %}<img src="{{ cert.badge | relative_url }}" alt="" width="112" height="112" loading="lazy">{% else %}<b>{{ cert.code }}</b>{% endif %}</span>
+        <a class="hx-tile__link" href="{{ cert.url | relative_url }}"><span class="hx-sr">{{ cert.title }}: details</span></a>
+        <span class="hx-tile__label" aria-hidden="true">
+          <span class="hx-tile__title">{{ cert.title }}</span>
+          <span class="hx-tile__meta">{{ cert.code }} &middot; {{ cert.issuer }}</span>
+        </span>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="hx-empty">Badges coming soon.</p>
+    {% endif %}
+
+    {% if site.categories.certs %}
+    <h3 class="hx-subtitle">Reviews</h3>
+    <ul class="post-list">
+      {% for post in site.categories.certs %}
+      <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a> <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </section>
+
+  <!-- ===== HackTheBox ===== -->
+  <section class="hx-card hx-section" id="hackthebox">
+    <h2 class="hx-section-title"><span class="hx-green">&gt;</span> {{ h.hackthebox_title }}</h2>
+    <p class="hx-section-intro">{{ h.hackthebox_intro }}{% if h.htb_profile and h.htb_profile != "" %} <a href="{{ h.htb_profile }}" rel="noopener noreferrer">View my profile &rarr;</a>{% endif %}</p>
+
+    <ul class="writeups-list">
+      {% for post in site.categories.hackthebox %}
+      <li class="writeup-item">
+        <a href="{{ post.url | relative_url }}" aria-hidden="true" tabindex="-1">
+          {% if post.badge %}<img src="{{ post.badge | relative_url }}" alt="" class="writeup-badge" loading="lazy">{% else %}<span class="writeup-badge writeup-badge--placeholder"><i class="fas fa-terminal"></i></span>{% endif %}
+        </a>
+        <a href="{{ post.url | relative_url }}" class="writeup-title">{{ post.title }}</a>
+        <span class="writeup-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+      </li>
+      {% else %}
+      <li class="hx-empty">Writeups coming soon.</li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <!-- ===== Projects ===== -->
+  <section class="hx-card hx-section" id="projects">
+    <h2 class="hx-section-title"><span class="hx-green">&gt;</span> {{ h.projects_title }}</h2>
+    <p class="hx-section-intro">{{ h.projects_intro }}</p>
+
+    <div class="hx-projects">
+      {% for p in site.data.projects %}
+        {% if p.url and p.url != "" %}<a class="hx-project" href="{{ p.url }}"{% if p.url contains '://' %} rel="noopener noreferrer"{% endif %}>{% else %}<div class="hx-project">{% endif %}
+          <span class="hx-project__year">{{ p.year }}</span>
+          <span class="hx-project__title">{% if p.icon and p.icon != "" %}<i class="{{ p.icon }} fa-fw" aria-hidden="true"></i> {% endif %}{{ p.title }}</span>
+          <span class="hx-project__desc">{{ p.description }}</span>
+        {% if p.url and p.url != "" %}</a>{% else %}</div>{% endif %}
+      {% else %}
+        <p class="hx-empty">Projects coming soon.</p>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ===== Secret shell (revealed by the ghost icon in the nav) ===== -->
+  <section class="hx-shell hx-section" id="shell" hidden aria-label="Hidden shell: a small capture-the-flag">
+    <div class="hx-term-window">
+      <div class="hx-term-bar">
+        <span class="hx-term-bar__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="hx-term-bar__title">analyst@ir-ws01: ~ — case HX-4471</span>
+        <button type="button" class="hx-term-bar__exit" data-shell-close title="Close the shell">exit &times;</button>
+      </div>
+      <div id="hx-term" class="hx-term" data-host="{{ site.title | slugify }}">
+        <div id="hx-term-output" aria-live="polite"></div>
+        <form id="hx-term-form" class="hx-term__form" autocomplete="off">
+          <label id="hx-term-prompt" class="hx-term__prompt" for="hx-term-input">guest@box:~$</label>
+          <input id="hx-term-input" class="hx-term__input" type="text" spellcheck="false" autocapitalize="off" autocorrect="off" autocomplete="off" aria-label="Terminal input">
+        </form>
+      </div>
+    </div>
+    <p class="hx-term-foot">Simulated in your browser. Start with <code>cat README.txt</code>. Stuck? Type <code>hint &lt;n&gt;</code>. Leave with <code>exit</code>.</p>
+  </section>
+
+  {{ content }}
+</div>
+<script type="module" src="{{ base_path }}/assets/js/lib/terminal.js?v={{ site.time | date: "%s" }}"></script>

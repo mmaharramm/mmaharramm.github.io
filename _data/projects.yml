@@ -1,0 +1,8 @@
+# Projects shown on the home page, newest first. Empty list = "Projects coming soon."
+# Example:
+# - year: 2026
+#   title: "Project name"
+#   description: "One or two sentences."
+#   url: ""                      # optional link (repo, demo, post)
+#   icon: "fas fa-terminal"      # optional Font Awesome class
+[]

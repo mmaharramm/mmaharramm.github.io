@@ -1,0 +1,25 @@
+{% include base_path %}
+
+<!-- start custom head snippets -->
+
+<!-- Security: everything is self-hosted; no third-party scripts, fonts or trackers.
+     GitHub Pages can't set response headers, so the CSP is delivered via meta tag
+     (frame-ancestors / X-Frame-Options are not settable this way). -->
+{% if jekyll.environment == "production" %}
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+{% endif %}
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<!-- jQuery 3.7.1, self-hosted; verified against official SRI hash -->
+<script src="{{ base_path }}/assets/js/lib/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="></script>
+
+<!-- Font Awesome (self-hosted) -->
+<link rel="stylesheet" href="{{ base_path }}/assets/css/fontawesome.css">
+
+<link rel="apple-touch-icon" sizes="180x180" href="{{ base_path }}/images/apple-touch-icon-180x180.png"/>
+<link rel="icon" type="image/png" href="{{ base_path }}/images/favicon-32x32.png" sizes="32x32"/>
+<link rel="icon" type="image/png" href="{{ base_path }}/images/favicon-192x192.png" sizes="192x192"/>
+<link rel="manifest" href="{{ base_path }}/images/manifest.json"/>
+<link rel="icon" href="{{ base_path }}/images/favicon.ico"/>
+
+<!-- end custom head snippets -->
