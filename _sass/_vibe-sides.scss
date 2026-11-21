@@ -55,6 +55,10 @@ html[data-theme="dark"] {
 .vibe-layer { transition: opacity 0.7s ease; }
 html.vibe-wait .vibe-layer { opacity: 0; }
 @media (prefers-reduced-motion: reduce) { .vibe-layer { transition: none; } }
+/* The theme's global `span { transition: all }` would fade each piece's colour/opacity
+   separately on a light/dark switch while the page background flips instantly, flashing
+   pale cards and mismatched tints. Switch the art in the same frame as the page. */
+.vibe-layer *, .vibe-layer *::before, .vibe-layer *::after { transition: none !important; }
 
 @media (min-width: 1440px) and (hover: none), (min-width: 1440px) and (pointer: coarse), (min-width: 1296.0px) and (hover: hover) and (pointer: fine) {
 
