@@ -68,7 +68,9 @@ layout: default
     {% if site.certifications.size > 0 %}
     <ul class="hx-tiles">
       {% for cert in site.certifications %}
-      <li class="hx-tile">
+      {% assign guide = site.posts | where: "cert", cert.code | first %}
+      <li class="hx-tiles__item">
+      <div class="hx-tile">
         <span class="hx-tile__chip">{{ cert.issued }}</span>
         {% if cert.verify %}<a class="hx-tile__verify" href="{{ cert.verify }}" target="_blank" rel="noopener noreferrer"><i class="fas fa-circle-check" aria-hidden="true"></i> Verify<span class="hx-sr"> {{ cert.code }} (opens in a new tab)</span></a>{% endif %}
         <span class="hx-tile__visual" aria-hidden="true">{% if cert.badge %}<img src="{{ cert.badge | relative_url }}" alt="" width="112" height="112" loading="lazy">{% else %}<b>{{ cert.code }}</b>{% endif %}</span>
@@ -77,6 +79,19 @@ layout: default
           <span class="hx-tile__title">{{ cert.title }}</span>
           <span class="hx-tile__meta">{{ cert.code }} &middot; {{ cert.issuer }}</span>
         </span>
+      </div>
+      {% if guide %}
+      <a class="hx-guide" href="{{ guide.url | relative_url }}">
+        <span class="hx-guide__eyebrow">Exam guide</span>
+        <span class="hx-guide__title">How I passed {{ cert.code }}</span>
+        <span class="hx-guide__arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      {% else %}
+      <p class="hx-guide hx-guide--soon">
+        <span class="hx-guide__eyebrow">Exam guide &middot; coming soon</span>
+        <span class="hx-guide__title">How I passed {{ cert.code }}</span>
+      </p>
+      {% endif %}
       </li>
       {% endfor %}
     </ul>
@@ -84,14 +99,6 @@ layout: default
     <p class="hx-empty">Badges coming soon.</p>
     {% endif %}
 
-    {% if site.categories.certs %}
-    <h3 class="hx-subtitle">Reviews</h3>
-    <ul class="post-list">
-      {% for post in site.categories.certs %}
-      <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a> <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span></li>
-      {% endfor %}
-    </ul>
-    {% endif %}
   </section>
 
   <!-- ===== HackTheBox ===== -->

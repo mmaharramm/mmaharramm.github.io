@@ -107,7 +107,7 @@ kramdown:
   smart_quotes           : lsquo,rsquo,ldquo,rdquo
   enable_coderay         : false
 
-# Posts: categories = hackthebox (listed under HackTheBox) | certs (listed under Certifications → Reviews)
+# Posts: categories = hackthebox (listed under HackTheBox) | certs + cert: CODE (exam guide linked under that certification tile)
 collections:
   certifications:
     output: true
