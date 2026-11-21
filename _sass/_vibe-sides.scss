@@ -211,6 +211,7 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   .vibe-ph--elint     { --m: url("../../images/vibe/photo-elint-chart.jpg");    --ar: 527 / 388; }
   .vibe-ph--dish      { --m: url("../../images/vibe/photo-tracking-dish.png");  --ar: 511 / 640; }
   .vibe-ph--operator  { --m: url("../../images/vibe/photo-field-operator.jpg"); --ar: 414 / 640; }
+  .vibe-ph--listen    { --m: url("../../images/vibe/poster-listen.png");      --ar: 900 / 1125; }
   .vibe-ph--jumpseat  { --m: url("../../images/vibe/photo-jumpseat.jpg");       --ar: 495 / 640; }
   .vibe-ph--nvgpatent { --m: url("../../images/vibe/photo-nvg-patent-1.jpg");   --ar: 436 / 640; }
   .vibe-radial--plan  { --m: url("../../images/vibe/photo-frd10-plan.jpg");     --ar: 640 / 616; }
@@ -226,6 +227,10 @@ html.vibe-wait .vibe-layer { opacity: 0; }
 
   /* Standalone backdrops between clusters. */
   .vibe-ph--operator { --x: 6%; --y: clamp(1820px, 82%, 4600px); --w: clamp(150px, 62%, 230px); --o: 0.14; --b: 0.7px; --r: -3deg; }
+  /* Grain-print poster in the band under the first cluster (only the faint site plan sits there). */
+  .vibe-ph--listen   { --x: 2%; --y: clamp(600px, 28%, 1400px); --w: clamp(190px, 72%, 330px); --o: 0.34; --b: 0px; --r: -2deg; }
+  .vibe-card { -webkit-mask: none; mask: none; background-color: var(--vibe-paper); opacity: var(--vibe-paper-o); filter: drop-shadow(0 2px 4px var(--vibe-shadow)); }
+  .vibe-card--listen { --x: 1%; --y: calc(clamp(600px, 28%, 1400px) - 8px); --w: calc(clamp(190px, 72%, 330px) + 12px); --ar: 900 / 1125; --r: -2deg; }
 
   /* ---------- Clusters ---------- */
 
