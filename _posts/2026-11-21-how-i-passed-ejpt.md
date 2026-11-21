@@ -14,17 +14,6 @@ published: false       # set to true when the guide is ready to go live
 
 ## Overview
 
-| Exam | Details |
-|---|---|
-| **Certification** | Junior Penetration Tester (eJPT) |
-| **Issuer** | INE Security |
-| **Format** | |
-| **Duration** | |
-| **Passing score** | |
-| **My result** | |
-| **Attempt** | |
-| **Prep time** | |
-
 ## Why I Took It
 
 ## My Background Going In
