@@ -30,7 +30,7 @@
   --vibe-paper-o:  0.6;
   --vibe-grain:    #0b4f2e;
   --vibe-shadow:   rgba(11, 60, 35, 0.10);
-  --vibe-boost:    1;         /* global opacity multiplier */
+  --vibe-boost:    1.4;       /* global opacity multiplier (raised for visibility) */
 }
 
 html[data-theme="dark"] {
@@ -41,7 +41,7 @@ html[data-theme="dark"] {
   --vibe-paper-o:  0.45;
   --vibe-grain:    #a6e8c4;
   --vibe-shadow:   rgba(0, 0, 0, 0.28);
-  --vibe-boost:    0.8;
+  --vibe-boost:    1.1;
 }
 
 /* Hidden by default: phones, tablets and laptops never render or fetch it. */
@@ -329,8 +329,8 @@ html.vibe-wait .vibe-layer { opacity: 0; }
 
 /* 1440-1679px: narrow gutters. Thin the collage (drop minor pieces) and quieten it. */
 @media (min-width: 1440px) and (max-width: 1679px) {
-  .vibe-layer { --vibe-boost: 0.8; --vibe-paper-o: 0.5; }
-  html[data-theme="dark"] .vibe-layer { --vibe-boost: 0.65; }
+  .vibe-layer { --vibe-boost: 1.1; --vibe-paper-o: 0.5; }
+  html[data-theme="dark"] .vibe-layer { --vibe-boost: 0.9; }
   .vibe-p--minor { display: none !important; }
 }
 
