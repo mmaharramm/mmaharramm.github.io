@@ -22,6 +22,10 @@
      fetched on phones/tablets/laptops.
    ========================================================================== */
 
+/* Breakpoints below come in two forms: real screen width for touch devices, and
+   width x 0.9 for desktop mouse/trackpad browsers, where _custom.scss renders the site
+   at 90% (html { zoom: 0.9 }) so the page lays out as if the screen were 1/0.9 wider.
+   That keeps every gutter arrangement matched to the width it was tuned for. */
 :root {
   --vibe-line:     #0b6a3a;   /* SVG line art: the site green, a hair deeper */
   --vibe-photo:    #0b7a43;   /* photo backdrops: site accent */
@@ -52,7 +56,7 @@ html[data-theme="dark"] {
 html.vibe-wait .vibe-layer { opacity: 0; }
 @media (prefers-reduced-motion: reduce) { .vibe-layer { transition: none; } }
 
-@media (min-width: 1440px) {
+@media (min-width: 1440px) and (hover: none), (min-width: 1440px) and (pointer: coarse), (min-width: 1296.0px) and (hover: hover) and (pointer: fine) {
 
   /* <html> paints its own background, so <body>'s background (paper grain) does not
      propagate to the canvas. Making <body> a stacking context lets z-index:-1 sit
@@ -264,7 +268,7 @@ html.vibe-wait .vibe-layer { opacity: 0; }
 }
 
 /* ---------- Security-symbol drawings and the field kit, in the open bands between clusters ---------- */
-@media (min-width: 1440px) {
+@media (min-width: 1440px) and (hover: none), (min-width: 1440px) and (pointer: coarse), (min-width: 1296.0px) and (hover: hover) and (pointer: fine) {
 
   /* Original security-symbol drawings (images/vibe/sec-*.svg), placed like the icons. */
   .vibe-sec { --o: 0.2; --b: 0.5px; }
@@ -290,7 +294,7 @@ html.vibe-wait .vibe-layer { opacity: 0; }
 /* ---------- Round 3: crypto + retro hardware (original drawings, images/vibe/) ----------
    Main set fills the measured gaps from 1440px; sizes are % of the gutter, capped in px
    so they stay sketch-sized on very wide screens. */
-@media (min-width: 1440px) {
+@media (min-width: 1440px) and (hover: none), (min-width: 1440px) and (pointer: coarse), (min-width: 1296.0px) and (hover: hover) and (pointer: fine) {
   .vibe-x { --o: 0.2; --b: 0.5px; }
   /* B-2: US Air Force photo (public domain) engraved into scanlines, under a HUD overlay
      drawn to the same 760x520 box. Both layers share position, size and rotation. */
@@ -319,23 +323,23 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   .vibe-x--authkey  { --m: url("../../images/vibe/hw-authkey.svg");     --ar: 320 / 560;
     --x: calc(98% - 150px); --y: clamp(1620px, 71%, 3700px); --w: 150px; --r: 5deg; }
 }
-@media (min-width: 2400px) {
+@media (min-width: 2400px) and (hover: none), (min-width: 2400px) and (pointer: coarse), (min-width: 2160.0px) and (hover: hover) and (pointer: fine) {
   .vibe-wide { display: block; }
 }
 /* The rotor sheet sits over the radial plan; only legible once the gutter is wide. */
-@media (min-width: 1440px) and (max-width: 2199px) {
+@media (min-width: 1440px) and (max-width: 2199px) and (hover: none), (min-width: 1440px) and (max-width: 2199px) and (pointer: coarse), (min-width: 1296.0px) and (max-width: 1979.98px) and (hover: hover) and (pointer: fine) {
   .vibe-x--rotors { display: none; }
 }
 
 /* 1440-1679px: narrow gutters. Thin the collage (drop minor pieces) and quieten it. */
-@media (min-width: 1440px) and (max-width: 1679px) {
+@media (min-width: 1440px) and (max-width: 1679px) and (hover: none), (min-width: 1440px) and (max-width: 1679px) and (pointer: coarse), (min-width: 1296.0px) and (max-width: 1511.98px) and (hover: hover) and (pointer: fine) {
   .vibe-layer { --vibe-boost: 1.1; --vibe-paper-o: 0.5; }
   html[data-theme="dark"] .vibe-layer { --vibe-boost: 0.9; }
   .vibe-p--minor { display: none !important; }
 }
 
 /* ---------- Motion: scroll-driven depth (progressive enhancement, no JS) ---------- */
-@media (min-width: 1440px) and (prefers-reduced-motion: no-preference) {
+@media (min-width: 1440px) and (hover: none) and (prefers-reduced-motion: no-preference), (min-width: 1440px) and (pointer: coarse) and (prefers-reduced-motion: no-preference), (min-width: 1296.0px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
     .vibe-p, .vibe-ph, .vibe-radial {
       animation: vibe-drift linear both;
@@ -365,13 +369,13 @@ html.vibe-wait .vibe-layer { opacity: 0; }
    .vibe-p--minor pieces are hidden. The flight track and the port scrap still have room up to 1919px. ----------
    Positions follow the measured gaps on the home page. */
 .vibe-gap { display: none; }
-@media (min-width: 1440px) and (max-width: 1919px) {
+@media (min-width: 1440px) and (max-width: 1919px) and (hover: none), (min-width: 1440px) and (max-width: 1919px) and (pointer: coarse), (min-width: 1296.0px) and (max-width: 1727.98px) and (hover: hover) and (pointer: fine) {
   .vibe-gap--track, .vibe-gap--nmap { display: block; }
 }
-@media (min-width: 1440px) and (max-width: 1679px) {
-  .vibe-gap { display: block; }
+@media (min-width: 1440px) and (max-width: 1679px) and (hover: none), (min-width: 1440px) and (max-width: 1679px) and (pointer: coarse), (min-width: 1296.0px) and (max-width: 1511.98px) and (hover: hover) and (pointer: fine) {
+  .vibe-gap--track, .vibe-gap--hash, .vibe-gap--nmap, .vibe-gap--scope, .vibe-gap--pivot { display: block; }
 }
-@media (min-width: 1440px) and (max-width: 1919px) {
+@media (min-width: 1440px) and (max-width: 1919px) and (hover: none), (min-width: 1440px) and (max-width: 1919px) and (pointer: coarse), (min-width: 1296.0px) and (max-width: 1727.98px) and (hover: hover) and (pointer: fine) {
   .vibe-gap { --o: 0.2; --b: 0.4px; --vibe-depth: 14px; }
   .vibe-gap--track { --m: url("../../images/vibe/track-b2.svg");    --ar: 420 / 270; --x: 2%;  --y: 258px;                        --w: clamp(190px, 100%, 230px); --r: -2deg; --o: 0.24; }
   .vibe-gap--hash  { --m: url("../../images/vibe/hash-verify.svg"); --ar: 360 / 250; --x: 4%;  --y: clamp(790px, 34.5%, 1900px);  --w: clamp(180px, 96%, 210px);  --r: 3deg; }
@@ -381,7 +385,7 @@ html.vibe-wait .vibe-layer { opacity: 0; }
 }
 
 /* 1680-1799px: the minor pieces are back, so the gaps move (measured at 1700px). From 1800px the bands close up. */
-@media (min-width: 1680px) and (max-width: 1799px) {
+@media (min-width: 1680px) and (max-width: 1799px) and (hover: none), (min-width: 1680px) and (max-width: 1799px) and (pointer: coarse), (min-width: 1512.0px) and (max-width: 1619.98px) and (hover: hover) and (pointer: fine) {
   .vibe-gap--scope, .vibe-gap--hash, .vibe-gap--pivot, .vibe-gap--totp, .vibe-gap--jwt { display: block; }
   .vibe-gap--scope { --x: 4%;  --y: clamp(440px, 19.2%, 1100px);  --w: clamp(180px, 92%, 210px); }
   .vibe-gap--hash  { --x: 6%;  --y: clamp(995px, 43.4%, 2300px);  --w: clamp(180px, 90%, 210px); }
