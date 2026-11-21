@@ -1,0 +1,105 @@
+---
+layout: null
+sitemap: false
+---
+# AI training and AI answer crawlers: no access.
+User-Agent: GPTBot
+Disallow: /
+
+User-Agent: ChatGPT-User
+Disallow: /
+
+User-Agent: OAI-SearchBot
+Disallow: /
+
+User-Agent: ClaudeBot
+Disallow: /
+
+User-Agent: Claude-Web
+Disallow: /
+
+User-Agent: anthropic-ai
+Disallow: /
+
+User-Agent: Google-Extended
+Disallow: /
+
+User-Agent: CCBot
+Disallow: /
+
+User-Agent: PerplexityBot
+Disallow: /
+
+User-Agent: Perplexity-User
+Disallow: /
+
+User-Agent: Bytespider
+Disallow: /
+
+User-Agent: FacebookBot
+Disallow: /
+
+User-Agent: Meta-ExternalAgent
+Disallow: /
+
+User-Agent: meta-externalagent
+Disallow: /
+
+User-Agent: Meta-ExternalFetcher
+Disallow: /
+
+User-Agent: Applebot-Extended
+Disallow: /
+
+User-Agent: Amazonbot
+Disallow: /
+
+User-Agent: cohere-ai
+Disallow: /
+
+User-Agent: Diffbot
+Disallow: /
+
+User-Agent: DuckAssistBot
+Disallow: /
+
+User-Agent: ImagesiftBot
+Disallow: /
+
+User-Agent: ImageSift
+Disallow: /
+
+User-Agent: omgili
+Disallow: /
+
+User-Agent: omgilibot
+Disallow: /
+
+User-Agent: Timpibot
+Disallow: /
+
+User-Agent: Velen Crawler
+Disallow: /
+
+User-Agent: YouBot
+Disallow: /
+
+User-Agent: Kangaroo Bot
+Disallow: /
+
+User-Agent: PetalBot
+Disallow: /
+
+User-Agent: Scrapy
+Disallow: /
+
+# Everyone else (search engines): the whole site, minus old redirect stubs.
+User-Agent: *
+Allow: /
+Disallow: /about/
+Disallow: /certs/
+Disallow: /contact/
+Disallow: /writeups/
+Disallow: /page-archive/
+
+Sitemap: {{ "/sitemap.xml" | absolute_url }}
