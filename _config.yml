@@ -13,7 +13,7 @@ repository               : "mmaharramm/mmaharramm.github.io"
 
 # Sidebar
 author:
-  avatar           :                       # no image yet; set e.g. "logo.png" (in /images/) to fill the circle
+  avatar           : "logo.jpg"            # lives in /images/
   avatar_slot      : true                  # keep the empty circle on the home page until then
   name             : "Maharram Maharramov"
   pronouns         :
