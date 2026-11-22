@@ -243,7 +243,6 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   .vibe-ph--archive   { --m: url("../../images/vibe/poster-archive.png?v=#{$vibe-v}"); }
   .vibe-ph--terminal  { --m: url("../../images/vibe/poster-terminal.png?v=#{$vibe-v}"); }
   .vibe-ph--drop      { --m: url("../../images/vibe/poster-drop.png?v=#{$vibe-v}"); }
-  .vibe-ph--bypass    { --m: url("../../images/vibe/poster-bypass.png?v=#{$vibe-v}"); }
   .vibe-slot { --sw: clamp(190px, 72%, 330px); --ar: 900 / 1125; }
   .vibe-ph.vibe-slot   { --x: var(--sx); --y: var(--sy); --w: var(--sw); --o: 0.34; --b: 0px; }
   .vibe-card.vibe-slot { --x: calc(var(--sx) - 6px); --y: calc(var(--sy) - 8px); --w: calc(var(--sw) + 12px); opacity: min(0.92, calc(var(--vibe-paper-o) + 0.3)); }

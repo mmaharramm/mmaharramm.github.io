@@ -6,7 +6,7 @@
   Styles: _sass/_vibe-sides.scss. Pieces marked --minor drop out on narrower gutters.
 {% endcomment %}
 {% comment %} Grain-print posters: three slots per page, a different rotation of the six per page. {% endcomment %}
-{% assign vibe_posters = "terminal,bypass,mainframe,drop,core,watched,intercept,backbone,vapor,archive,orbit,pivot,array,cipher,exfil,0day,relay" | split: "," %}
+{% assign vibe_posters = "terminal,core,mainframe,drop,watched,intercept,backbone,vapor,archive,orbit,pivot,array,cipher,exfil,0day,relay" | split: "," %}
 {% assign vn = vibe_posters | size %}
 {% if page.url == "/" %}{% assign vp0 = 0 %}{% else %}{% assign vh = 7 %}{% assign vchars = page.url | downcase | split: "" %}{% for c in vchars %}{% assign vi = "abcdefghijklmnopqrstuvwxyz0123456789-_./" | split: c | first | size %}{% assign vh = vh | times: 29 | plus: vi | modulo: 99991 %}{% endfor %}{% assign vp0 = vh | modulo: vn %}{% endif %}
 {% assign vp1 = vp0 | plus: 1 | modulo: vn %}{% assign vp2 = vp0 | plus: 2 | modulo: vn %}{% assign vp3 = vp0 | plus: 3 | modulo: vn %}
