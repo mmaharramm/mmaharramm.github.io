@@ -9,9 +9,10 @@
     if (localStorage.getItem('theme') === 'dark') root.setAttribute('data-theme', 'dark');
   } catch (e) { /* storage blocked: stay on the light default */ }
 
-  // Desktop mouse/trackpad browsers render at 90% (html { zoom: 0.9 }), so the art shows from 1296px there.
-  var mm = window.matchMedia && window.matchMedia.bind(window);
-  var wide = mm && (mm('(hover: hover) and (pointer: fine)').matches ? mm('(min-width: 1296px)') : mm('(min-width: 1440px)')).matches;
+  // Only pages wide enough to have gutters show the art (the CSS decides exactly, by laid-out
+  // width); this rough gate just avoids holding back a layer that will not appear anyway.
+  // 1296 = 1440 x 0.9, the narrowest window that can lay out 1440px at the desktop 90% zoom.
+  var wide = (window.innerWidth || 0) >= 1296;
   if (wide) {
     root.classList.add('vibe-wait');
     var shown = false;

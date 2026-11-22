@@ -118,10 +118,13 @@ body {
    Top navigation (brand left, back-to-top centre, mono links right)
    ========================================================================== */
 
+$hx-nav-centered: 1090px; /* bar width from which the links fit in half the bar (ghost centred) */
+$hx-nav-compact: 700px;   /* bar width below which the page links fold into the ☰ menu */
 $hx-nav-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 
-.hx-nav {
-  /* brand | ghost | links — equal outer columns keep the ghost exactly centred at every width */
+.hx-nav__row {
+  /* brand | ghost | links — equal outer columns keep the ghost exactly centred when the
+     links fit in half the bar; narrower, the links take their natural width (see below). */
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
@@ -174,19 +177,27 @@ $hx-nav-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", 
 /* keep the masthead's bottom rule above the nav controls */
 .masthead::after { z-index: 101; }
 
+/* Menu: page links + theme toggle in the bar; below the width where they fit, the page
+   links move into the ☰ menu. Decided by a container query on the masthead's own width,
+   so it is the same in every browser and under any page/browser zoom (no JS measuring).
+   The ☰ button sits in the flex row, so it can never cover the theme toggle. */
+.masthead__inner-wrap.hx-nav { container: hxnav / inline-size; }
+
 .hx-nav .greedy-nav {
   min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   background: transparent;
 
-  /* the ☰ button sat on top of the masthead's bottom rule with an opaque background */
-  > .greedy-nav__toggle { background-color: transparent; }
-
-  /* when the ☰ button is showing, keep the last visible item (theme toggle) clear of it */
-  &:has(> .greedy-nav__toggle:not(.hidden)) .visible-links { margin-right: 2.75rem; }
-
   .visible-links {
-    margin-left: auto;              /* right-align, keeps natural width for greedy-nav measuring */
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin: 0;
+    white-space: nowrap;
 
+    li { display: block; }
     li:first-child { font-weight: normal; }
 
     a {
@@ -196,11 +207,45 @@ $hx-nav-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", 
     }
 
     .hx-nav__icon a { font-size: 1.1rem; }
+    #theme-toggle > button { margin: 0 0 0 0.8rem; }
 
     .selected a { color: var(--hx-accent); }
   }
 
-  .hidden-links a { font-size: 0.92rem; }
+  > .greedy-nav__toggle {
+    position: relative;
+    display: none;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    margin-left: 0.6rem;
+    padding: 0 0.35rem;
+    background-color: transparent;
+    border-radius: 6px;
+    &:focus-visible { outline: 2px solid var(--hx-accent); outline-offset: 2px; }
+  }
+
+  .hidden-links {
+    display: none;
+    z-index: 30;
+    min-width: 12rem;
+    list-style: none;
+    li { display: block; margin: 0; }
+    a { font-size: 0.95rem; }
+    .selected a { color: var(--hx-accent); }
+  }
+}
+
+@container hxnav (max-width: #{$hx-nav-centered - 0.02px}) {
+  .hx-nav__row { grid-template-columns: auto minmax(0, 1fr) auto; }
+}
+@container hxnav (max-width: #{$hx-nav-compact - 0.02px}) {
+  .hx-nav .greedy-nav {
+    .visible-links .hx-nav__page { display: none; }
+    > .greedy-nav__toggle { display: inline-flex; }
+    .hidden-links:not(.hidden) { display: block; }
+  }
 }
 
 /* ---------- Projects ---------- */
