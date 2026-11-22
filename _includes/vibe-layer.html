@@ -10,7 +10,7 @@
 {% assign vn = vibe_posters | size %}
 {% if page.url == "/" %}{% assign vp0 = 0 %}{% else %}{% assign vh = 7 %}{% assign vchars = page.url | downcase | split: "" %}{% for c in vchars %}{% assign vi = "abcdefghijklmnopqrstuvwxyz0123456789-_./" | split: c | first | size %}{% assign vh = vh | times: 29 | plus: vi | modulo: 99991 %}{% endfor %}{% assign vp0 = vh | modulo: vn %}{% endif %}
 {% assign vp1 = vp0 | plus: 1 | modulo: vn %}{% assign vp2 = vp0 | plus: 2 | modulo: vn %}{% assign vp3 = vp0 | plus: 3 | modulo: vn %}
-{% assign vp4 = vp0 | plus: 4 | modulo: vn %}{% assign vp5 = vp0 | plus: 5 | modulo: vn %}{% assign vp6 = vp0 | plus: 6 | modulo: vn %}{% assign vp7 = vp0 | plus: 7 | modulo: vn %}{% assign vp8 = vp0 | plus: 8 | modulo: vn %}{% assign vp9 = vp0 | plus: 9 | modulo: vn %}{% assign vp10 = vp0 | plus: 10 | modulo: vn %}{% assign vp11 = vp0 | plus: 11 | modulo: vn %}
+{% assign vp4 = vp0 | plus: 4 | modulo: vn %}{% assign vp5 = vp0 | plus: 5 | modulo: vn %}{% assign vp6 = vp0 | plus: 6 | modulo: vn %}{% assign vp7 = vp0 | plus: 7 | modulo: vn %}{% assign vp8 = vp0 | plus: 8 | modulo: vn %}{% assign vp9 = vp0 | plus: 9 | modulo: vn %}{% assign vp10 = vp0 | plus: 10 | modulo: vn %}{% assign vp11 = vp0 | plus: 11 | modulo: vn %}{% assign vp12 = vp0 | plus: 12 | modulo: vn %}{% assign vp13 = vp0 | plus: 13 | modulo: vn %}{% assign vp14 = vp0 | plus: 14 | modulo: vn %}{% assign vp15 = vp0 | plus: 15 | modulo: vn %}
 <div class="vibe-layer" aria-hidden="true">
   <div class="vibe-side vibe-side--left">
 
@@ -94,6 +94,10 @@
     <span class="vibe-p vibe-ld vibe-ld--term"></span>
     <span class="vibe-p vibe-ld vibe-ld--pcb"></span>
     <span class="vibe-p vibe-ld vibe-ld--dialog"></span>
+    <span class="vibe-p vibe-card vibe-slot vibe-chip vibe-chip--wide vibe-chip--w1"></span>
+    <span class="vibe-ph vibe-ph--{{ vibe_posters[vp12] }} vibe-slot vibe-chip vibe-chip--wide vibe-chip--w1"></span>
+    <span class="vibe-p vibe-card vibe-slot vibe-chip vibe-chip--wide vibe-chip--w2"></span>
+    <span class="vibe-ph vibe-ph--{{ vibe_posters[vp13] }} vibe-slot vibe-chip vibe-chip--wide vibe-chip--w2"></span>
   </div>
   <div class="vibe-side vibe-side--right">
 
@@ -172,5 +176,9 @@
     <span class="vibe-p vibe-rd vibe-rd--glider"></span>
     <span class="vibe-p vibe-rd vibe-rd--qr"></span>
     <span class="vibe-p vibe-rd vibe-rd--scope"></span>
+    <span class="vibe-p vibe-card vibe-slot vibe-chip vibe-chip--wide vibe-chip--w3"></span>
+    <span class="vibe-ph vibe-ph--{{ vibe_posters[vp14] }} vibe-slot vibe-chip vibe-chip--wide vibe-chip--w3"></span>
+    <span class="vibe-p vibe-card vibe-slot vibe-chip vibe-chip--wide vibe-chip--w4"></span>
+    <span class="vibe-ph vibe-ph--{{ vibe_posters[vp15] }} vibe-slot vibe-chip vibe-chip--wide vibe-chip--w4"></span>
   </div>
 </div>
