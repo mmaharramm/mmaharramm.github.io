@@ -6,7 +6,7 @@
   Styles: _sass/_vibe-sides.scss. Pieces marked --minor drop out on narrower gutters.
 {% endcomment %}
 {% comment %} Grain-print posters: three slots per page, a different rotation of the six per page. {% endcomment %}
-{% assign vibe_posters = "terminal,core,mainframe,drop,picks,intercept,backbone,vapor,archive,orbit,pivot,array,cipher,exfil,0day,relay" | split: "," %}
+{% assign vibe_posters = "terminal,core,mainframe,drop,picks,intercept,backbone,keystroke,archive,orbit,pivot,array,cipher,exfil,0day,relay" | split: "," %}
 {% assign vn = vibe_posters | size %}
 {% if page.url == "/" %}{% assign vp0 = 0 %}{% else %}{% assign vh = 7 %}{% assign vchars = page.url | downcase | split: "" %}{% for c in vchars %}{% assign vi = "abcdefghijklmnopqrstuvwxyz0123456789-_./" | split: c | first | size %}{% assign vh = vh | times: 29 | plus: vi | modulo: 99991 %}{% endfor %}{% assign vp0 = vh | modulo: vn %}{% endif %}
 {% assign vp1 = vp0 | plus: 1 | modulo: vn %}{% assign vp2 = vp0 | plus: 2 | modulo: vn %}{% assign vp3 = vp0 | plus: 3 | modulo: vn %}
@@ -80,6 +80,17 @@
     <span class="vibe-p vibe-card vibe-slot vibe-chip vibe-chip--tall vibe-chip--l1"></span>
     <span class="vibe-ph vibe-ph--{{ vibe_posters[vp9] }} vibe-slot vibe-chip vibe-chip--tall vibe-chip--l1"></span>
 
+    <span class="vibe-p vibe-ld vibe-ld--hexdump"></span>
+    <span class="vibe-p vibe-ld vibe-ld--hash"></span>
+    <span class="vibe-p vibe-ld vibe-ld--pivot"></span>
+    <span class="vibe-p vibe-ld vibe-ld--shell"></span>
+    <span class="vibe-p vibe-ld vibe-ld--jwt"></span>
+    <span class="vibe-p vibe-ld vibe-ld--totp"></span>
+    <span class="vibe-p vibe-ld vibe-ld--packet"></span>
+    <span class="vibe-p vibe-ld vibe-ld--nmap"></span>
+    <span class="vibe-p vibe-ld vibe-ld--authkey"></span>
+    <span class="vibe-p vibe-ld vibe-ld--wheel"></span>
+    <span class="vibe-p vibe-ld vibe-ld--tape"></span>
   </div>
   <div class="vibe-side vibe-side--right">
 

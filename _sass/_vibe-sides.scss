@@ -229,7 +229,6 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   /* Grain-print poster slots (posters picked per page in vibe-layer.html), each on a paper card. */
   .vibe-ph--intercept { --m: url("../../images/vibe/poster-intercept.png?v=#{$vibe-v}"); }
   .vibe-ph--orbit     { --m: url("../../images/vibe/poster-orbit.png?v=#{$vibe-v}"); }
-  .vibe-ph--vapor     { --m: url("../../images/vibe/poster-vapor.png?v=#{$vibe-v}"); }
   .vibe-ph--array     { --m: url("../../images/vibe/poster-array.png?v=#{$vibe-v}"); }
   .vibe-ph--relay     { --m: url("../../images/vibe/poster-relay.png?v=#{$vibe-v}"); }
   .vibe-ph--exfil     { --m: url("../../images/vibe/poster-exfil.png?v=#{$vibe-v}"); }
@@ -243,6 +242,7 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   .vibe-ph--terminal  { --m: url("../../images/vibe/poster-terminal.png?v=#{$vibe-v}"); }
   .vibe-ph--drop      { --m: url("../../images/vibe/poster-drop.png?v=#{$vibe-v}"); }
   .vibe-ph--picks     { --m: url("../../images/vibe/poster-picks.png?v=#{$vibe-v}"); }
+  .vibe-ph--keystroke { --m: url("../../images/vibe/poster-keystroke.png?v=#{$vibe-v}"); }
   .vibe-slot { --sw: clamp(190px, 72%, 330px); --ar: 900 / 1125; }
   .vibe-ph.vibe-slot   { --x: var(--sx); --y: var(--sy); --w: var(--sw); --o: 0.34; --b: 0px; }
   .vibe-card.vibe-slot { --x: calc(var(--sx) - 6px); --y: calc(var(--sy) - 8px); --w: calc(var(--sw) + 12px); opacity: min(0.92, calc(var(--vibe-paper-o) + 0.3)); }
@@ -421,6 +421,24 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   .vibe-chip--short { display: block !important; }
   .vibe-kit--fieldkit, .vibe-kit-tape--fieldkit, .vibe-cluster--l2 .vibe-ph--dish, .vibe-cluster--l2 .vibe-p--monitors,
   .vibe-cluster--l2 .vibe-p--scrap2, .vibe-cluster--l2 .vibe-p--radio, .vibe-cluster--l2 .vibe-p--tape { display: none !important; }
+}
+
+/* Left-gutter background details: faint security sketches around and between the posters,
+   matching the density of the right gutter. Full gutters only. */
+.vibe-ld { display: none; }
+@container vibe (min-width: 1680px) {
+  .vibe-ld { display: block; --b: 0.4px; --vibe-depth: 14px; }
+  .vibe-ld--hexdump { --m: url("../../images/vibe/hack-hexdump.svg?v=#{$vibe-v}"); --ar: 440 / 300; --x: 50%; --y: 4%; --w: 52%; --r: -4deg; --o: 0.3; }
+  .vibe-ld--hash    { --m: url("../../images/vibe/hash-verify.svg?v=#{$vibe-v}"); --ar: 360 / 250; --x: 52%; --y: 14.5%; --w: 50%; --r: 4deg; --o: 0.32; }
+  .vibe-ld--pivot   { --m: url("../../images/vibe/net-pivot.svg?v=#{$vibe-v}"); --ar: 380 / 420; --x: 56%; --y: 24%; --w: 44%; --r: -3deg; --o: 0.3; }
+  .vibe-ld--shell   { --m: url("../../images/vibe/hack-shell-history.svg?v=#{$vibe-v}"); --ar: 380 / 520; --x: 58%; --y: 34.5%; --w: 40%; --r: 3deg; --o: 0.28; }
+  .vibe-ld--jwt     { --m: url("../../images/vibe/jwt-scrap.svg?v=#{$vibe-v}"); --ar: 360 / 230; --x: 48%; --y: 45.5%; --w: 54%; --r: -2deg; --o: 0.32; }
+  .vibe-ld--totp    { --m: url("../../images/vibe/totp-token.svg?v=#{$vibe-v}"); --ar: 320 / 230; --x: 56%; --y: 54%; --w: 44%; --r: 5deg; --o: 0.32; }
+  .vibe-ld--packet  { --m: url("../../images/vibe/hack-packet.svg?v=#{$vibe-v}"); --ar: 400 / 470; --x: 58%; --y: 62%; --w: 40%; --r: -4deg; --o: 0.28; }
+  .vibe-ld--nmap    { --m: url("../../images/vibe/nmap-scrap.svg?v=#{$vibe-v}"); --ar: 360 / 240; --x: 36%; --y: 70.5%; --w: 56%; --r: 2deg; --o: 0.3; }
+  .vibe-ld--authkey { --m: url("../../images/vibe/hw-authkey.svg?v=#{$vibe-v}"); --ar: 320 / 560; --x: 66%; --y: 76%; --w: 28%; --r: -7deg; --o: 0.3; }
+  .vibe-ld--wheel   { --m: url("../../images/vibe/crypt-wheel.svg?v=#{$vibe-v}"); --ar: 400 / 430; --x: 52%; --y: 88%; --w: 46%; --r: 6deg; --o: 0.28; }
+  .vibe-ld--tape    { --m: url("../../images/vibe/sec-binary-tape.svg?v=#{$vibe-v}"); --ar: 130 / 620; --x: -2%; --y: 64%; --w: 13%; --r: -6deg; --o: 0.24; }
 }
 
 /* ---------- Motion: scroll-driven depth (progressive enhancement, no JS) ---------- */
