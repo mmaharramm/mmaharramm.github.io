@@ -46,6 +46,34 @@
       shown = true;
       root.classList.remove('vibe-wait');
     };
+    // Wait only for the images the visible pieces use (not the whole page's load event, which also
+    // waits for certificate scans and the like). They are already downloading: head.html preloads them.
+    var waitArt = function () {
+      var layer = document.querySelector('.vibe-layer');
+      if (!layer) { reveal(); return; }
+      var urls = {}, els = layer.querySelectorAll('*');
+      for (var i = 0; i < els.length; i++) {
+        if (!els[i].getClientRects().length) { continue; }       // hidden at this width
+        var cs = getComputedStyle(els[i]);
+        String(cs.webkitMaskImage || cs.maskImage || '').replace(/url\("?([^")]+)"?\)/g, function (m, u) { urls[u] = 1; });
+      }
+      var list = Object.keys(urls), left = list.length;
+      if (!left) { reveal(); return; }
+      var done = function () { if (--left === 0) { reveal(); } };
+      list.forEach(function (u) {
+        var im = new Image();
+        im.crossOrigin = 'anonymous';                               // same request mode as the CSS masks
+        im.onload = im.onerror = done;
+        im.src = u;
+      });
+    };
+    var start = function () {
+      // the stylesheet must be applied before the pieces can be measured
+      var css = document.querySelector('link[rel="stylesheet"][href*="main.css"]');
+      if (css && !css.sheet) { css.addEventListener('load', waitArt, { once: true }); css.addEventListener('error', reveal, { once: true }); }
+      else { waitArt(); }
+    };
+    if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', start, { once: true }); } else { start(); }
     window.addEventListener('load', reveal, { once: true });
     setTimeout(reveal, 3500);   // never hold the art back longer than this
   }

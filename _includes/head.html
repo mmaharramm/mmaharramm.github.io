@@ -13,3 +13,12 @@
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="{{ base_path }}/assets/css/main.css?v={{ site.time | date: '%s' }}">
+
+{% comment %} Side art: start downloading it right away, alongside the stylesheet. From the CSS alone the
+   browser only discovers these images after the stylesheet has loaded and the page is laid out,
+   so on a first visit they arrived late. Each image is preloaded only at the window widths that
+   show it (_data/vibe_preload.yml). Masks are fetched in CORS mode, hence crossorigin, so the
+   preload and the CSS share one download. The ?v= must match $vibe-v in assets/css/main.scss. {% endcomment %}
+{% assign vibe_v = site.time | date: '%s' %}
+{% for g in site.data.vibe_preload %}{% for f in g.files %}<link rel="preload" as="image" href="{{ base_path }}/images/vibe/{{ f }}?v={{ vibe_v }}" crossorigin="anonymous" media="{{ g.media }}">
+{% endfor %}{% endfor %}

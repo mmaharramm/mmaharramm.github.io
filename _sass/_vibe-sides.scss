@@ -154,11 +154,11 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   .vibe-p--qr        { --m: url("../../images/vibe/hack-qr.svg?v=#{$vibe-v}");              --ar: 1; }
   /* Poster prints, laid on the paper scraps (tactical-poster language: heavy caps, +++, microtext). */
   .vibe-poster--sigint { --m: url("../../images/vibe/poster-sigint.svg?v=#{$vibe-v}"); --ar: 300 / 380; }
-  .vibe-poster--2026   { --m: url("../../images/vibe/poster-rom.png?v=#{$vibe-v}");    --ar: 1020 / 750; }
+  .vibe-poster--2026   { --m: url("../../images/vibe/poster-rom.webp?v=#{$vibe-v}");    --ar: 1020 / 750; }
   /* Accent-mark layers (stars, X marks, dials, +++): same box and colour as the piece underneath. */
   .vibe-red { --b: 0px; }
   .vibe-red.vibe-poster--sigint { --m: url("../../images/vibe/poster-sigint-red.svg?v=#{$vibe-v}"); }
-  .vibe-red.vibe-poster--2026   { --m: url("../../images/vibe/poster-rom-red.png?v=#{$vibe-v}"); }
+  .vibe-red.vibe-poster--2026   { --m: url("../../images/vibe/poster-rom-red.webp?v=#{$vibe-v}"); }
   .vibe-red.vibe-p--halftone    { --m: url("../../images/vibe/halftone-dots-red.svg?v=#{$vibe-v}"); }
   .vibe-red.vibe-p--notes       { --m: url("../../images/vibe/notes-scrawl-red.svg?v=#{$vibe-v}"); }
 
@@ -207,13 +207,13 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   }
 
   .vibe-ph--elint     { --m: url("../../images/vibe/photo-elint-chart.jpg?v=#{$vibe-v}");    --ar: 527 / 388; }
-  .vibe-ph--dish      { --m: url("../../images/vibe/photo-tracking-dish.png?v=#{$vibe-v}");  --ar: 511 / 640; }
+  .vibe-ph--dish      { --m: url("../../images/vibe/photo-tracking-dish.webp?v=#{$vibe-v}");  --ar: 511 / 640; }
   .vibe-ph--operator  { --m: url("../../images/vibe/photo-field-operator.jpg?v=#{$vibe-v}"); --ar: 414 / 640; }
-  .vibe-ph--listen    { --m: url("../../images/vibe/poster-listen.png?v=#{$vibe-v}");      --ar: 900 / 1125; }
+  .vibe-ph--listen    { --m: url("../../images/vibe/poster-listen.webp?v=#{$vibe-v}");      --ar: 900 / 1125; }
   .vibe-ph--jumpseat  { --m: url("../../images/vibe/photo-jumpseat.jpg?v=#{$vibe-v}");       --ar: 495 / 640; }
   .vibe-ph--nvgpatent { --m: url("../../images/vibe/photo-nvg-patent-1.jpg?v=#{$vibe-v}");   --ar: 436 / 640; }
   .vibe-radial--plan  { --m: url("../../images/vibe/photo-frd10-plan.jpg?v=#{$vibe-v}");     --ar: 640 / 616; }
-  .vibe-radial--cage  { --m: url("../../images/vibe/photo-elephant-cage.png?v=#{$vibe-v}");  --ar: 640 / 490; }
+  .vibe-radial--cage  { --m: url("../../images/vibe/photo-elephant-cage.webp?v=#{$vibe-v}");  --ar: 640 / 490; }
 
   /* Big radial forms: ~50% cropped by the outer viewport edge. */
   .vibe-radial {
@@ -228,22 +228,22 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   /* Grain-print poster in the band under the first cluster (only the faint site plan sits there). */
   .vibe-ph--listen   { --x: 2%; --y: clamp(600px, 28%, 1400px); --w: clamp(190px, 72%, 330px); --o: 0.34; --b: 0px; --r: -2deg; }
   /* Grain-print poster slots (posters picked per page in vibe-layer.html), each on a paper card. */
-  .vibe-ph--intercept { --m: url("../../images/vibe/poster-intercept.png?v=#{$vibe-v}"); }
-  .vibe-ph--orbit     { --m: url("../../images/vibe/poster-orbit.png?v=#{$vibe-v}"); }
-  .vibe-ph--array     { --m: url("../../images/vibe/poster-array.png?v=#{$vibe-v}"); }
-  .vibe-ph--relay     { --m: url("../../images/vibe/poster-relay.png?v=#{$vibe-v}"); }
-  .vibe-ph--exfil     { --m: url("../../images/vibe/poster-exfil.png?v=#{$vibe-v}"); }
-  .vibe-ph--0day      { --m: url("../../images/vibe/poster-0day.png?v=#{$vibe-v}"); }
-  .vibe-ph--cipher    { --m: url("../../images/vibe/poster-cipher.png?v=#{$vibe-v}"); }
-  .vibe-ph--pivot     { --m: url("../../images/vibe/poster-pivot.png?v=#{$vibe-v}"); }
-  .vibe-ph--mainframe { --m: url("../../images/vibe/poster-mainframe.png?v=#{$vibe-v}"); }
-  .vibe-ph--core      { --m: url("../../images/vibe/poster-core.png?v=#{$vibe-v}"); }
-  .vibe-ph--backbone  { --m: url("../../images/vibe/poster-backbone.png?v=#{$vibe-v}"); }
-  .vibe-ph--archive   { --m: url("../../images/vibe/poster-archive.png?v=#{$vibe-v}"); }
-  .vibe-ph--terminal  { --m: url("../../images/vibe/poster-terminal.png?v=#{$vibe-v}"); }
-  .vibe-ph--drop      { --m: url("../../images/vibe/poster-drop.png?v=#{$vibe-v}"); }
-  .vibe-ph--picks     { --m: url("../../images/vibe/poster-picks.png?v=#{$vibe-v}"); }
-  .vibe-ph--keystroke { --m: url("../../images/vibe/poster-keystroke.png?v=#{$vibe-v}"); }
+  .vibe-ph--intercept { --m: url("../../images/vibe/poster-intercept.webp?v=#{$vibe-v}"); }
+  .vibe-ph--orbit     { --m: url("../../images/vibe/poster-orbit.webp?v=#{$vibe-v}"); }
+  .vibe-ph--array     { --m: url("../../images/vibe/poster-array.webp?v=#{$vibe-v}"); }
+  .vibe-ph--relay     { --m: url("../../images/vibe/poster-relay.webp?v=#{$vibe-v}"); }
+  .vibe-ph--exfil     { --m: url("../../images/vibe/poster-exfil.webp?v=#{$vibe-v}"); }
+  .vibe-ph--0day      { --m: url("../../images/vibe/poster-0day.webp?v=#{$vibe-v}"); }
+  .vibe-ph--cipher    { --m: url("../../images/vibe/poster-cipher.webp?v=#{$vibe-v}"); }
+  .vibe-ph--pivot     { --m: url("../../images/vibe/poster-pivot.webp?v=#{$vibe-v}"); }
+  .vibe-ph--mainframe { --m: url("../../images/vibe/poster-mainframe.webp?v=#{$vibe-v}"); }
+  .vibe-ph--core      { --m: url("../../images/vibe/poster-core.webp?v=#{$vibe-v}"); }
+  .vibe-ph--backbone  { --m: url("../../images/vibe/poster-backbone.webp?v=#{$vibe-v}"); }
+  .vibe-ph--archive   { --m: url("../../images/vibe/poster-archive.webp?v=#{$vibe-v}"); }
+  .vibe-ph--terminal  { --m: url("../../images/vibe/poster-terminal.webp?v=#{$vibe-v}"); }
+  .vibe-ph--drop      { --m: url("../../images/vibe/poster-drop.webp?v=#{$vibe-v}"); }
+  .vibe-ph--picks     { --m: url("../../images/vibe/poster-picks.webp?v=#{$vibe-v}"); }
+  .vibe-ph--keystroke { --m: url("../../images/vibe/poster-keystroke.webp?v=#{$vibe-v}"); }
   .vibe-slot { --sw: clamp(190px, 72%, 330px); --ar: 900 / 1125; }
   .vibe-ph.vibe-slot   { --x: var(--sx); --y: var(--sy); --w: var(--sw); --o: 0.34; --b: 0px; }
   .vibe-card.vibe-slot { --x: calc(var(--sx) - 6px); --y: calc(var(--sy) - 8px); --w: calc(var(--sw) + 12px); opacity: min(0.92, calc(var(--vibe-paper-o) + 0.3)); }

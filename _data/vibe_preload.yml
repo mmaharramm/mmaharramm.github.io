@@ -1,0 +1,93 @@
+# Side-art images to preload, by the window widths that show them (_includes/head.html).
+# Measured by loading every page at 1300-2560px and recording which images each width used;
+# the widths are window px at the desktop 90% scale (1296 = 1440 x 0.9, 1512 = 1680 x 0.9, ...).
+# Only a speed hint: an image missing here still loads from the CSS, just later.
+- media: "(min-width: 1512px)"
+  files:
+    - crypt-wheel.svg
+    - hack-qr.svg
+    - hack-shell-history.svg
+    - halftone-dots-red.svg
+    - halftone-dots.svg
+    - hw-authkey.svg
+    - hw-rfid.svg
+    - hw-sidechannel.svg
+    - hw-uart.svg
+    - jwt-scrap.svg
+    - notes-scrawl-red.svg
+    - notes-scrawl.svg
+    - poster-0day.webp
+    - poster-archive.webp
+    - poster-array.webp
+    - poster-backbone.webp
+    - poster-cipher.webp
+    - poster-core.webp
+    - poster-drop.webp
+    - poster-exfil.webp
+    - poster-intercept.webp
+    - poster-keystroke.webp
+    - poster-listen.webp
+    - poster-mainframe.webp
+    - poster-orbit.webp
+    - poster-picks.webp
+    - poster-pivot.webp
+    - poster-relay.webp
+    - poster-terminal.webp
+    - retro-dialog.svg
+    - retro-floppy.svg
+    - retro-ram.svg
+    - rf-handshake.svg
+    - sec-binary-tape.svg
+    - sec-cctv.svg
+    - totp-token.svg
+    - waterfall-strip.svg
+- media: "(min-width: 1296px)"
+  files:
+    - dish-blueprint.svg
+    - grain.svg
+    - hack-glider.svg
+    - hack-hexdump.svg
+    - hack-lockpick.svg
+    - hack-packet.svg
+    - hack-pcb.svg
+    - hack-terminal.svg
+    - hash-verify.svg
+    - hud-b2.svg
+    - net-pivot.svg
+    - nmap-scrap.svg
+    - paper-scrap-1.svg
+    - paper-scrap-2.svg
+    - photo-b2-engraved.jpg
+    - photo-elephant-cage.webp
+    - photo-elint-chart.jpg
+    - photo-frd10-plan.jpg
+    - photo-jumpseat.jpg
+    - poster-rom-red.webp
+    - poster-rom.webp
+    - poster-sigint-red.svg
+    - poster-sigint.svg
+    - scope-ook.svg
+    - sec-fingerprint.svg
+    - sec-padlock.svg
+    - sec-skeleton-key.svg
+    - surv-eye.svg
+    - tape-strip.svg
+- media: "(min-width: 1296px) and (max-width: 1511.98px)"
+  files:
+    - field-radio.svg
+    - kit-fieldkit.svg
+    - kit-neofetch.svg
+    - monitor-wall.svg
+    - photo-tracking-dish.webp
+    - sec-jolly-roger.svg
+    - yagi-antenna.svg
+- media: "(min-width: 2160px)"
+  files:
+    - retro-terminal.svg
+    - rf-receiver.svg
+- media: "(min-width: 1296px) and (max-width: 1727.98px)"
+  files:
+    - track-b2.svg
+- media: "(min-width: 1980px)"
+  files:
+    - crypt-rotors.svg
