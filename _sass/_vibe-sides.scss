@@ -58,7 +58,7 @@ body { isolation: isolate; }
   overflow: clip;            /* clip, not hidden: keeps the root as the scroll timeline */
   pointer-events: none;
   user-select: none;
-  container: vibe / inline-size;
+  container: vibe / size;    /* size, not just width: its box comes from the insets, so the height is known too */
 }
 .vibe-side { display: none; }
 
@@ -235,12 +235,28 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   .vibe-ph--array     { --m: url("../../images/vibe/poster-array.png?v=#{$vibe-v}"); }
   .vibe-ph--relay     { --m: url("../../images/vibe/poster-relay.png?v=#{$vibe-v}"); }
   .vibe-ph--exfil     { --m: url("../../images/vibe/poster-exfil.png?v=#{$vibe-v}"); }
+  .vibe-ph--overflow  { --m: url("../../images/vibe/poster-overflow.png?v=#{$vibe-v}"); }
+  .vibe-ph--payload   { --m: url("../../images/vibe/poster-payload.png?v=#{$vibe-v}"); }
+  .vibe-ph--0day      { --m: url("../../images/vibe/poster-0day.png?v=#{$vibe-v}"); }
+  .vibe-ph--phish     { --m: url("../../images/vibe/poster-phish.png?v=#{$vibe-v}"); }
+  .vibe-ph--breach    { --m: url("../../images/vibe/poster-breach.png?v=#{$vibe-v}"); }
+  .vibe-ph--cipher    { --m: url("../../images/vibe/poster-cipher.png?v=#{$vibe-v}"); }
+  .vibe-ph--rootkit   { --m: url("../../images/vibe/poster-rootkit.png?v=#{$vibe-v}"); }
+  .vibe-ph--beacon    { --m: url("../../images/vibe/poster-beacon.png?v=#{$vibe-v}"); }
+  .vibe-ph--pivot     { --m: url("../../images/vibe/poster-pivot.png?v=#{$vibe-v}"); }
   .vibe-slot { --sw: clamp(190px, 72%, 330px); --ar: 900 / 1125; }
   .vibe-ph.vibe-slot   { --x: var(--sx); --y: var(--sy); --w: var(--sw); --o: 0.34; --b: 0px; }
   .vibe-card.vibe-slot { --x: calc(var(--sx) - 6px); --y: calc(var(--sy) - 8px); --w: calc(var(--sw) + 12px); opacity: min(0.92, calc(var(--vibe-paper-o) + 0.3)); }
   .vibe-slot--r1 { --sx: calc(97% - var(--sw)); --sy: clamp(820px, 36%, 2000px);  --r: 2deg; }
   .vibe-slot--r2 { --sx: calc(95% - var(--sw)); --sy: clamp(1460px, 69%, 3500px); --r: -1.5deg; }
   .vibe-slot--l3 { --sx: 3%;                    --sy: clamp(1540px, 73%, 3700px); --r: 1.5deg; }
+  /* Extra slots for long pages (certificates, guides): only once the page is tall enough (below). */
+  .vibe-slot--la { --sx: 3%;                    --sy: 41.5%; --r: -1.5deg; }
+  .vibe-slot--lb { --sx: 4%;                    --sy: 85%; --r: 1deg; }
+  .vibe-slot--ra { --sx: calc(96% - var(--sw)); --sy: 19%; --r: -2deg; }
+  .vibe-slot--rb { --sx: calc(97% - var(--sw)); --sy: 54%; --r: 1.5deg; }
+  .vibe-slot--rc { --sx: calc(95% - var(--sw)); --sy: 84%; --r: -1deg; }
+  .vibe-slot--long { display: none !important; }
   .vibe-card { -webkit-mask: none; mask: none; background-color: var(--vibe-paper); opacity: var(--vibe-paper-o); filter: drop-shadow(0 2px 4px var(--vibe-shadow)); }
   .vibe-card--listen { --x: 1%; --y: calc(clamp(600px, 28%, 1400px) - 8px); --w: calc(clamp(190px, 72%, 330px) + 12px); --ar: 900 / 1125; --r: -2deg; }
 
@@ -377,6 +393,13 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   .vibe-sec--roger, .vibe-kit--neofetch, .vibe-kit-tape--neofetch, .vibe-cluster--r1 .vibe-p--packet, .vibe-x--dialog,
   .vibe-kit--quad, .vibe-cluster--r2 .vibe-ph--nvgpatent, .vibe-cluster--r2 .vibe-p--smith, .vibe-cluster--r2 .vibe-p--scrap1,
   .vibe-cluster--r2 .vibe-p--yagi, .vibe-cluster--r2 .vibe-p--tape { display: none !important; }
+}
+
+@container vibe (min-width: 1680px) and (min-height: 2900px) {
+  .vibe-slot--long { display: block !important; }
+  /* sketches that sit under the long-page posters (measured on a certificate page at 1920px) */
+  .vibe-kit--fieldkit, .vibe-kit-tape--fieldkit, .vibe-sec--fingerprint, .vibe-cluster--r1 .vibe-p--qr, .vibe-cluster--r1 .vibe-p--tape2,
+  .vibe-x--eye, .vibe-sec--padlock, .vibe-cluster--r2 .vibe-p--pcb, .vibe-cluster--r2 .vibe-p--lockpick { display: none !important; }
 }
 
 /* ---------- Motion: scroll-driven depth (progressive enhancement, no JS) ---------- */
