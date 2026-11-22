@@ -84,8 +84,8 @@ html.vibe-wait .vibe-layer { opacity: 0; }
     -webkit-mask-image: var(--vibe-fade);
             mask-image: var(--vibe-fade);
   }
-  .vibe-side--left  { left: 0;  --vibe-fade: linear-gradient(to right, #000 0, #000 calc(100% - 150px), rgba(0,0,0,.45) calc(100% - 100px), transparent calc(100% - 56px)); }
-  .vibe-side--right { right: 0; --vibe-fade: linear-gradient(to left,  #000 0, #000 calc(100% - 150px), rgba(0,0,0,.45) calc(100% - 100px), transparent calc(100% - 56px)); }
+  .vibe-side--left  { left: 0;  --vibe-fade: linear-gradient(to right, #000 0, #000 calc(100% - 104px), rgba(0,0,0,.5) calc(100% - 66px), transparent calc(100% - 30px)); }
+  .vibe-side--right { right: 0; --vibe-fade: linear-gradient(to left,  #000 0, #000 calc(100% - 104px), rgba(0,0,0,.5) calc(100% - 66px), transparent calc(100% - 30px)); }
 
   /* Film grain over everything in the gutter (unifies photos + line art). */
   .vibe-side::after {
@@ -462,6 +462,18 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   .vibe-rd--glider   { --m: url("../../images/vibe/hack-glider.svg?v=#{$vibe-v}"); --ar: 360 / 540; --x: 24%; --y: 76.5%; --w: 22%; --r: -4deg; --o: 0.34; }
   .vibe-rd--qr       { --m: url("../../images/vibe/hack-qr.svg?v=#{$vibe-v}"); --ar: 297 / 297; --x: 18%; --y: 84%; --w: 28%; --r: 5deg; --o: 0.34; }
   .vibe-rd--scope    { --m: url("../../images/vibe/scope-ook.svg?v=#{$vibe-v}"); --ar: 380 / 250; --x: 14%; --y: 93%; --w: 44%; --r: -2deg; --o: 0.34; }
+}
+
+/* Top-of-page details: fixed px tops (the top of every page looks the same), filling the
+   corners and the bands between the first prints. Full gutters only. */
+.vibe-td { display: none; }
+@container vibe (min-width: 1680px) {
+  .vibe-td { display: block; --b: 0.4px; --vibe-depth: 14px; filter: none; }
+  .vibe-td--injector  { --m: url("../../images/vibe/hw-injector.svg?v=#{$vibe-v}");  --ar: 420 / 300; --x: -4%; --y: 26px;  --w: min(50%, 210px); --r: -5deg; --o: 0.5; }
+  .vibe-td--rfid      { --m: url("../../images/vibe/hw-rfid.svg?v=#{$vibe-v}");      --ar: 360 / 300; --x: -1%; --y: 640px; --w: min(36%, 150px); --r: 4deg;  --o: 0.5; }
+  .vibe-td--handshake { --m: url("../../images/vibe/rf-handshake.svg?v=#{$vibe-v}"); --ar: 380 / 300; --x: 13%; --y: 352px; --w: min(36%, 150px); --r: 3deg;  --o: 0.5; }
+  .vibe-td--uart      { --m: url("../../images/vibe/hw-uart.svg?v=#{$vibe-v}");      --ar: 340 / 420; --x: 64%; --y: 470px; --w: min(28%, 118px); --r: -4deg; --o: 0.45; }
+  .vibe-td--cctv      { --m: url("../../images/vibe/sec-cctv.svg?v=#{$vibe-v}");     --ar: 340 / 300; --x: 56%; --y: 752px; --w: min(36%, 150px); --r: 2deg;  --o: 0.5; }
 }
 
 @container vibe (min-width: 2400px) {
