@@ -235,14 +235,8 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   .vibe-ph--array     { --m: url("../../images/vibe/poster-array.png?v=#{$vibe-v}"); }
   .vibe-ph--relay     { --m: url("../../images/vibe/poster-relay.png?v=#{$vibe-v}"); }
   .vibe-ph--exfil     { --m: url("../../images/vibe/poster-exfil.png?v=#{$vibe-v}"); }
-  .vibe-ph--overflow  { --m: url("../../images/vibe/poster-overflow.png?v=#{$vibe-v}"); }
-  .vibe-ph--payload   { --m: url("../../images/vibe/poster-payload.png?v=#{$vibe-v}"); }
   .vibe-ph--0day      { --m: url("../../images/vibe/poster-0day.png?v=#{$vibe-v}"); }
-  .vibe-ph--phish     { --m: url("../../images/vibe/poster-phish.png?v=#{$vibe-v}"); }
-  .vibe-ph--breach    { --m: url("../../images/vibe/poster-breach.png?v=#{$vibe-v}"); }
   .vibe-ph--cipher    { --m: url("../../images/vibe/poster-cipher.png?v=#{$vibe-v}"); }
-  .vibe-ph--rootkit   { --m: url("../../images/vibe/poster-rootkit.png?v=#{$vibe-v}"); }
-  .vibe-ph--beacon    { --m: url("../../images/vibe/poster-beacon.png?v=#{$vibe-v}"); }
   .vibe-ph--pivot     { --m: url("../../images/vibe/poster-pivot.png?v=#{$vibe-v}"); }
   .vibe-slot { --sw: clamp(190px, 72%, 330px); --ar: 900 / 1125; }
   .vibe-ph.vibe-slot   { --x: var(--sx); --y: var(--sy); --w: var(--sw); --o: 0.34; --b: 0px; }
