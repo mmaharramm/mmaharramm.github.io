@@ -241,6 +241,9 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   .vibe-ph--watched   { --m: url("../../images/vibe/poster-watched.png?v=#{$vibe-v}"); }
   .vibe-ph--backbone  { --m: url("../../images/vibe/poster-backbone.png?v=#{$vibe-v}"); }
   .vibe-ph--archive   { --m: url("../../images/vibe/poster-archive.png?v=#{$vibe-v}"); }
+  .vibe-ph--terminal  { --m: url("../../images/vibe/poster-terminal.png?v=#{$vibe-v}"); }
+  .vibe-ph--drop      { --m: url("../../images/vibe/poster-drop.png?v=#{$vibe-v}"); }
+  .vibe-ph--bypass    { --m: url("../../images/vibe/poster-bypass.png?v=#{$vibe-v}"); }
   .vibe-slot { --sw: clamp(190px, 72%, 330px); --ar: 900 / 1125; }
   .vibe-ph.vibe-slot   { --x: var(--sx); --y: var(--sy); --w: var(--sw); --o: 0.34; --b: 0px; }
   .vibe-card.vibe-slot { --x: calc(var(--sx) - 6px); --y: calc(var(--sy) - 8px); --w: calc(var(--sw) + 12px); opacity: min(0.92, calc(var(--vibe-paper-o) + 0.3)); }
@@ -249,6 +252,7 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   .vibe-slot--l3 { --sx: 3%;                    --sy: clamp(1540px, 73%, 3700px); --r: 1.5deg; }
   /* Extra slots for long pages (certificates, guides): only once the page is tall enough (below). */
   .vibe-slot--la { --sx: 5%;                    --sy: clamp(1100px, 52%, 3400px); --r: -1.5deg; }   /* NOISE's old spot; higher on long pages */
+  .vibe-slot--lc { --sx: 7%;                    --sy: 58%; --r: 2deg; }
   .vibe-slot--lb { --sx: 4%;                    --sy: 85%; --r: 1deg; }
   .vibe-slot--ra { --sx: calc(96% - var(--sw)); --sy: 19%; --r: -2deg; }
   .vibe-slot--rb { --sx: calc(97% - var(--sw)); --sy: 54%; --r: 1.5deg; }
@@ -394,6 +398,8 @@ html.vibe-wait .vibe-layer { opacity: 0; }
 @container vibe (min-width: 1680px) and (min-height: 2900px) {
   .vibe-slot--long { display: block !important; }
   .vibe-slot--la { --sy: 41.5%; }
+  .vibe-cluster--l2 .vibe-ph--dish, .vibe-cluster--l2 .vibe-p--monitors, .vibe-cluster--l2 .vibe-p--scrap2,
+  .vibe-cluster--l2 .vibe-p--radio, .vibe-cluster--l2 .vibe-p--tape { display: none !important; }
   /* sketches that sit under the long-page posters (measured on a certificate page at 1920px) */
   .vibe-kit--fieldkit, .vibe-kit-tape--fieldkit, .vibe-sec--fingerprint, .vibe-cluster--r1 .vibe-p--qr, .vibe-cluster--r1 .vibe-p--tape2,
   .vibe-x--eye, .vibe-sec--padlock, .vibe-cluster--r2 .vibe-p--pcb, .vibe-cluster--r2 .vibe-p--lockpick { display: none !important; }

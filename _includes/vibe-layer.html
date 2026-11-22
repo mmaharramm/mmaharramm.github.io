@@ -6,11 +6,11 @@
   Styles: _sass/_vibe-sides.scss. Pieces marked --minor drop out on narrower gutters.
 {% endcomment %}
 {% comment %} Grain-print posters: three slots per page, a different rotation of the six per page. {% endcomment %}
-{% assign vibe_posters = "core,watched,mainframe,intercept,backbone,vapor,archive,orbit,pivot,array,cipher,exfil,0day,relay" | split: "," %}
+{% assign vibe_posters = "terminal,bypass,mainframe,drop,core,watched,intercept,backbone,vapor,archive,orbit,pivot,array,cipher,exfil,0day,relay" | split: "," %}
 {% assign vn = vibe_posters | size %}
 {% if page.url == "/" %}{% assign vp0 = 0 %}{% else %}{% assign vh = 7 %}{% assign vchars = page.url | downcase | split: "" %}{% for c in vchars %}{% assign vi = "abcdefghijklmnopqrstuvwxyz0123456789-_./" | split: c | first | size %}{% assign vh = vh | times: 29 | plus: vi | modulo: 99991 %}{% endfor %}{% assign vp0 = vh | modulo: vn %}{% endif %}
 {% assign vp1 = vp0 | plus: 1 | modulo: vn %}{% assign vp2 = vp0 | plus: 2 | modulo: vn %}{% assign vp3 = vp0 | plus: 3 | modulo: vn %}
-{% assign vp4 = vp0 | plus: 4 | modulo: vn %}{% assign vp5 = vp0 | plus: 5 | modulo: vn %}{% assign vp6 = vp0 | plus: 6 | modulo: vn %}{% assign vp7 = vp0 | plus: 7 | modulo: vn %}
+{% assign vp4 = vp0 | plus: 4 | modulo: vn %}{% assign vp5 = vp0 | plus: 5 | modulo: vn %}{% assign vp6 = vp0 | plus: 6 | modulo: vn %}{% assign vp7 = vp0 | plus: 7 | modulo: vn %}{% assign vp8 = vp0 | plus: 8 | modulo: vn %}
 <div class="vibe-layer" aria-hidden="true">
   <div class="vibe-side vibe-side--left">
 
@@ -67,6 +67,8 @@
     <span class="vibe-ph vibe-ph--{{ vibe_posters[vp2] }} vibe-slot vibe-slot--l3"></span>
     <span class="vibe-p vibe-card vibe-slot vibe-slot--la"></span>
     <span class="vibe-ph vibe-ph--{{ vibe_posters[vp3] }} vibe-slot vibe-slot--la"></span>
+    <span class="vibe-p vibe-card vibe-slot vibe-slot--long vibe-slot--lc"></span>
+    <span class="vibe-ph vibe-ph--{{ vibe_posters[vp8] }} vibe-slot vibe-slot--long vibe-slot--lc"></span>
     <span class="vibe-p vibe-card vibe-slot vibe-slot--long vibe-slot--lb"></span>
     <span class="vibe-ph vibe-ph--{{ vibe_posters[vp4] }} vibe-slot vibe-slot--long vibe-slot--lb"></span>
 
