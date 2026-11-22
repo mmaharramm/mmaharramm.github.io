@@ -436,8 +436,11 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   .vibe-ld--totp    { --m: url("../../images/vibe/totp-token.svg?v=#{$vibe-v}"); --ar: 320 / 230; --x: 56%; --y: 54%; --w: 44%; --r: 5deg; --o: 0.32; }
   .vibe-ld--packet  { --m: url("../../images/vibe/hack-packet.svg?v=#{$vibe-v}"); --ar: 400 / 470; --x: 58%; --y: 62%; --w: 40%; --r: -4deg; --o: 0.28; }
   .vibe-ld--nmap    { --m: url("../../images/vibe/nmap-scrap.svg?v=#{$vibe-v}"); --ar: 360 / 240; --x: 36%; --y: 70.5%; --w: 56%; --r: 2deg; --o: 0.3; }
-  .vibe-ld--authkey { --m: url("../../images/vibe/hw-authkey.svg?v=#{$vibe-v}"); --ar: 320 / 560; --x: 66%; --y: 76%; --w: 28%; --r: -7deg; --o: 0.3; }
+  .vibe-ld--authkey { --m: url("../../images/vibe/hw-authkey.svg?v=#{$vibe-v}"); --ar: 320 / 560; --x: 70%; --y: 70%; --w: 28%; --r: -7deg; --o: 0.3; }
   .vibe-ld--wheel   { --m: url("../../images/vibe/crypt-wheel.svg?v=#{$vibe-v}"); --ar: 400 / 430; --x: 52%; --y: 88%; --w: 46%; --r: 6deg; --o: 0.28; }
+  .vibe-ld--term    { --m: url("../../images/vibe/hack-terminal.svg?v=#{$vibe-v}"); --ar: 430 / 380; --x: 44%; --y: 78.5%; --w: 48%; --r: 4deg; --o: 0.5; }
+  .vibe-ld--pcb     { --m: url("../../images/vibe/hack-pcb.svg?v=#{$vibe-v}"); --ar: 400 / 500; --x: 50%; --y: 86%; --w: 38%; --r: -5deg; --o: 0.46; }
+  .vibe-ld--dialog  { --m: url("../../images/vibe/retro-dialog.svg?v=#{$vibe-v}"); --ar: 380 / 250; --x: 40%; --y: 94%; --w: 50%; --r: 3deg; --o: 0.46; }
   .vibe-ld--tape    { --m: url("../../images/vibe/sec-binary-tape.svg?v=#{$vibe-v}"); --ar: 130 / 620; --x: -2%; --y: 64%; --w: 13%; --r: -6deg; --o: 0.24; }
 }
 
