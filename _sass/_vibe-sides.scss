@@ -154,11 +154,11 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   .vibe-p--qr        { --m: url("../../images/vibe/hack-qr.svg?v=#{$vibe-v}");              --ar: 1; }
   /* Poster prints, laid on the paper scraps (tactical-poster language: heavy caps, +++, microtext). */
   .vibe-poster--sigint { --m: url("../../images/vibe/poster-sigint.svg?v=#{$vibe-v}"); --ar: 300 / 380; }
-  .vibe-poster--2026   { --m: url("../../images/vibe/poster-2026.svg?v=#{$vibe-v}");   --ar: 340 / 250; }
+  .vibe-poster--2026   { --m: url("../../images/vibe/poster-rom.png?v=#{$vibe-v}");    --ar: 1020 / 750; }
   /* Accent-mark layers (stars, X marks, dials, +++): same box and colour as the piece underneath. */
   .vibe-red { --b: 0px; }
   .vibe-red.vibe-poster--sigint { --m: url("../../images/vibe/poster-sigint-red.svg?v=#{$vibe-v}"); }
-  .vibe-red.vibe-poster--2026   { --m: url("../../images/vibe/poster-2026-red.svg?v=#{$vibe-v}"); }
+  .vibe-red.vibe-poster--2026   { --m: url("../../images/vibe/poster-rom-red.png?v=#{$vibe-v}"); }
   .vibe-red.vibe-p--halftone    { --m: url("../../images/vibe/halftone-dots-red.svg?v=#{$vibe-v}"); }
   .vibe-red.vibe-p--notes       { --m: url("../../images/vibe/notes-scrawl-red.svg?v=#{$vibe-v}"); }
 
@@ -169,6 +169,7 @@ html.vibe-wait .vibe-layer { opacity: 0; }
     filter: drop-shadow(0 2px 3px var(--vibe-shadow));
   }
   .vibe-poster                       { --o: 0.38; --b: 0px; }   /* bolder */
+  .vibe-poster.vibe-poster--2026     { --o: 0.52; }   /* die-shot print: dense photo, needs more ink */
   .vibe-p--halftone                  { --o: 0.28; --b: 0px; }   /* contact sheet */
   .vibe-p--tape, .vibe-p--tape2      { --o: 0.3;  --b: 0px; }   /* +++ label strips */
   .vibe-p--notes                     { --o: 0.32; --b: 0px; }   /* spec sheet */
@@ -469,7 +470,7 @@ html.vibe-wait .vibe-layer { opacity: 0; }
 .vibe-td { display: none; }
 @container vibe (min-width: 1680px) {
   .vibe-td { display: block; --b: 0.4px; --vibe-depth: 14px; filter: none; }
-  .vibe-td--injector  { --m: url("../../images/vibe/hw-injector.svg?v=#{$vibe-v}");  --ar: 420 / 300; --x: -4%; --y: 26px;  --w: min(50%, 210px); --r: -5deg; --o: 0.5; }
+  .vibe-td--injector  { --m: url("../../images/vibe/hw-sidechannel.svg?v=#{$vibe-v}"); --ar: 420 / 330; --x: -4%; --y: 64px;  --w: min(50%, 210px); --r: -5deg; --o: 0.5; }
   .vibe-td--rfid      { --m: url("../../images/vibe/hw-rfid.svg?v=#{$vibe-v}");      --ar: 360 / 300; --x: -1%; --y: 640px; --w: min(36%, 150px); --r: 4deg;  --o: 0.5; }
   .vibe-td--handshake { --m: url("../../images/vibe/rf-handshake.svg?v=#{$vibe-v}"); --ar: 380 / 300; --x: 13%; --y: 352px; --w: min(36%, 150px); --r: 3deg;  --o: 0.5; }
   .vibe-td--uart      { --m: url("../../images/vibe/hw-uart.svg?v=#{$vibe-v}");      --ar: 340 / 420; --x: 64%; --y: 470px; --w: min(28%, 118px); --r: -4deg; --o: 0.45; }
