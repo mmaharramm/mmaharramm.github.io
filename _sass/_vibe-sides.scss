@@ -228,6 +228,19 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   .vibe-ph--operator { --x: 6%; --y: clamp(1820px, 82%, 4600px); --w: clamp(150px, 62%, 230px); --o: 0.14; --b: 0.7px; --r: -3deg; }
   /* Grain-print poster in the band under the first cluster (only the faint site plan sits there). */
   .vibe-ph--listen   { --x: 2%; --y: clamp(600px, 28%, 1400px); --w: clamp(190px, 72%, 330px); --o: 0.34; --b: 0px; --r: -2deg; }
+  /* Grain-print poster slots (posters picked per page in vibe-layer.html), each on a paper card. */
+  .vibe-ph--intercept { --m: url("../../images/vibe/poster-intercept.png?v=#{$vibe-v}"); }
+  .vibe-ph--orbit     { --m: url("../../images/vibe/poster-orbit.png?v=#{$vibe-v}"); }
+  .vibe-ph--vapor     { --m: url("../../images/vibe/poster-vapor.png?v=#{$vibe-v}"); }
+  .vibe-ph--array     { --m: url("../../images/vibe/poster-array.png?v=#{$vibe-v}"); }
+  .vibe-ph--relay     { --m: url("../../images/vibe/poster-relay.png?v=#{$vibe-v}"); }
+  .vibe-ph--exfil     { --m: url("../../images/vibe/poster-exfil.png?v=#{$vibe-v}"); }
+  .vibe-slot { --sw: clamp(190px, 72%, 330px); --ar: 900 / 1125; }
+  .vibe-ph.vibe-slot   { --x: var(--sx); --y: var(--sy); --w: var(--sw); --o: 0.34; --b: 0px; }
+  .vibe-card.vibe-slot { --x: calc(var(--sx) - 6px); --y: calc(var(--sy) - 8px); --w: calc(var(--sw) + 12px); opacity: min(0.92, calc(var(--vibe-paper-o) + 0.3)); }
+  .vibe-slot--r1 { --sx: calc(97% - var(--sw)); --sy: clamp(820px, 36%, 2000px);  --r: 2deg; }
+  .vibe-slot--r2 { --sx: calc(95% - var(--sw)); --sy: clamp(1460px, 69%, 3500px); --r: -1.5deg; }
+  .vibe-slot--l3 { --sx: 3%;                    --sy: clamp(1540px, 73%, 3700px); --r: 1.5deg; }
   .vibe-card { -webkit-mask: none; mask: none; background-color: var(--vibe-paper); opacity: var(--vibe-paper-o); filter: drop-shadow(0 2px 4px var(--vibe-shadow)); }
   .vibe-card--listen { --x: 1%; --y: calc(clamp(600px, 28%, 1400px) - 8px); --w: calc(clamp(190px, 72%, 330px) + 12px); --ar: 900 / 1125; --r: -2deg; }
 
@@ -354,7 +367,16 @@ html.vibe-wait .vibe-layer { opacity: 0; }
 @container vibe (min-width: 1440px) and (max-width: 1679px) {
   .vibe-side { --vibe-boost: 1.1; --vibe-paper-o: 0.5; }
   html[data-theme="dark"] .vibe-side { --vibe-boost: 0.9; }
-  .vibe-p--minor { display: none !important; }
+  .vibe-p--minor, .vibe-slot { display: none !important; }
+}
+
+/* Where the poster slots show (full gutters), clear the sketches that sit under them so each
+   poster reads on its own instead of on top of clutter. Measured on the home page at 1920px. */
+@container vibe (min-width: 1680px) {
+  .vibe-cluster--l2 .vibe-p--hexdump, .vibe-cluster--l2 .vibe-p--history, .vibe-ph--operator, .vibe-sec--key, .vibe-x--ram,
+  .vibe-sec--roger, .vibe-kit--neofetch, .vibe-kit-tape--neofetch, .vibe-cluster--r1 .vibe-p--packet, .vibe-x--dialog,
+  .vibe-kit--quad, .vibe-cluster--r2 .vibe-ph--nvgpatent, .vibe-cluster--r2 .vibe-p--smith, .vibe-cluster--r2 .vibe-p--scrap1,
+  .vibe-cluster--r2 .vibe-p--yagi, .vibe-cluster--r2 .vibe-p--tape { display: none !important; }
 }
 
 /* ---------- Motion: scroll-driven depth (progressive enhancement, no JS) ---------- */

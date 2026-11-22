@@ -5,6 +5,10 @@
   dossier clusters of sharp SVG line art on top (.vibe-p). Pure CSS, no JS.
   Styles: _sass/_vibe-sides.scss. Pieces marked --minor drop out on narrower gutters.
 {% endcomment %}
+{% comment %} Grain-print posters: three slots per page, a different rotation of the six per page. {% endcomment %}
+{% assign vibe_posters = "intercept,vapor,orbit,array,exfil,relay" | split: "," %}
+{% if page.url == "/" %}{% assign vp0 = 0 %}{% else %}{% assign vp0 = page.url | size | modulo: 3 | plus: 3 %}{% endif %}
+{% assign vp1 = vp0 | plus: 1 | modulo: 6 %}{% assign vp2 = vp0 | plus: 2 | modulo: 6 %}
 <div class="vibe-layer" aria-hidden="true">
   <div class="vibe-side vibe-side--left">
 
@@ -59,6 +63,9 @@
     <span class="vibe-p vibe-gap vibe-gap--pivot"></span>
     <span class="vibe-p vibe-gap vibe-gap--jwt"></span>
 
+    <span class="vibe-p vibe-card vibe-slot vibe-slot--l3"></span>
+    <span class="vibe-ph vibe-ph--{{ vibe_posters[vp2] }} vibe-slot vibe-slot--l3"></span>
+
   </div>
   <div class="vibe-side vibe-side--right">
 
@@ -108,6 +115,11 @@
     <span class="vibe-p vibe-x vibe-x--wheel vibe-wide"></span>
     <span class="vibe-p vibe-x vibe-x--floppy vibe-wide"></span>
     <span class="vibe-p vibe-x vibe-x--authkey vibe-wide"></span>
+
+    <span class="vibe-p vibe-card vibe-slot vibe-slot--r1"></span>
+    <span class="vibe-ph vibe-ph--{{ vibe_posters[vp0] }} vibe-slot vibe-slot--r1"></span>
+    <span class="vibe-p vibe-card vibe-slot vibe-slot--r2"></span>
+    <span class="vibe-ph vibe-ph--{{ vibe_posters[vp1] }} vibe-slot vibe-slot--r2"></span>
 
   </div>
 </div>
