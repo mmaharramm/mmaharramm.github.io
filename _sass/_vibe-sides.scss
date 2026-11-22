@@ -441,6 +441,21 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   .vibe-ld--tape    { --m: url("../../images/vibe/sec-binary-tape.svg?v=#{$vibe-v}"); --ar: 130 / 620; --x: -2%; --y: 64%; --w: 13%; --r: -6deg; --o: 0.24; }
 }
 
+/* Right-gutter inner-edge details: the mirror of the left set, overlapping the posters' inner edges. */
+.vibe-rd { display: none; }
+@container vibe (min-width: 1680px) {
+  .vibe-rd { display: block; --b: 0.4px; --vibe-depth: 14px; filter: none; }
+  .vibe-rd--finger   { --m: url("../../images/vibe/sec-fingerprint.svg?v=#{$vibe-v}"); --ar: 420 / 460; --x: 16%; --y: 19.5%; --w: 34%; --r: -5deg; --o: 0.34; }
+  .vibe-rd--padlock  { --m: url("../../images/vibe/sec-padlock.svg?v=#{$vibe-v}"); --ar: 320 / 480; --x: 22%; --y: 29.5%; --w: 24%; --r: 4deg; --o: 0.34; }
+  .vibe-rd--ram      { --m: url("../../images/vibe/retro-ram.svg?v=#{$vibe-v}"); --ar: 440 / 330; --x: 14%; --y: 40%; --w: 46%; --r: -3deg; --o: 0.34; }
+  .vibe-rd--floppy   { --m: url("../../images/vibe/retro-floppy.svg?v=#{$vibe-v}"); --ar: 300 / 320; --x: 20%; --y: 49%; --w: 32%; --r: 6deg; --o: 0.34; }
+  .vibe-rd--skey     { --m: url("../../images/vibe/sec-skeleton-key.svg?v=#{$vibe-v}"); --ar: 260 / 600; --x: 26%; --y: 56.5%; --w: 17%; --r: -20deg; --o: 0.34; }
+  .vibe-rd--lockpick { --m: url("../../images/vibe/hack-lockpick.svg?v=#{$vibe-v}"); --ar: 400 / 560; --x: 16%; --y: 64%; --w: 34%; --r: 3deg; --o: 0.34; }
+  .vibe-rd--glider   { --m: url("../../images/vibe/hack-glider.svg?v=#{$vibe-v}"); --ar: 360 / 540; --x: 24%; --y: 76.5%; --w: 22%; --r: -4deg; --o: 0.34; }
+  .vibe-rd--qr       { --m: url("../../images/vibe/hack-qr.svg?v=#{$vibe-v}"); --ar: 297 / 297; --x: 18%; --y: 84%; --w: 28%; --r: 5deg; --o: 0.34; }
+  .vibe-rd--scope    { --m: url("../../images/vibe/scope-ook.svg?v=#{$vibe-v}"); --ar: 380 / 250; --x: 14%; --y: 93%; --w: 44%; --r: -2deg; --o: 0.34; }
+}
+
 /* ---------- Motion: scroll-driven depth (progressive enhancement, no JS) ---------- */
 @container vibe (min-width: 1440px) {
   @supports (animation-timeline: view()) {
