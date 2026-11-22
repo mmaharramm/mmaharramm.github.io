@@ -264,6 +264,9 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   .vibe-chip--l1 { --sx: 6%;                    --sy: 15%; --r: -3deg; }
   .vibe-chip--l2 { --sx: calc(90% - var(--sw)); --sy: 30.5%; --r: 2.5deg; }
   .vibe-chip--l3 { --sx: calc(86% - var(--sw)); --sy: 48%; --r: -2deg; }
+  .vibe-chip--s3 { --sx: 30%; --sy: 19.5%; --r: 3.5deg; }
+  .vibe-chip--s4 { --sx: 34%; --sy: 44.5%; --r: -3deg; }
+  .vibe-chip--s5 { --sx: 30%; --sy: 87%; --r: 2deg; }
   .vibe-chip--short, .vibe-chip--tall { display: none !important; }
   .vibe-card { -webkit-mask: none; mask: none; background-color: var(--vibe-paper); opacity: var(--vibe-paper-o); filter: drop-shadow(0 2px 4px var(--vibe-shadow)); }
   .vibe-card--listen { --x: 1%; --y: calc(clamp(600px, 28%, 1400px) - 8px); --w: calc(clamp(190px, 72%, 330px) + 12px); --ar: 900 / 1125; --r: -2deg; }
