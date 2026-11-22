@@ -154,12 +154,10 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   .vibe-p--qr        { --m: url("../../images/vibe/hack-qr.svg?v=#{$vibe-v}");              --ar: 1; }
   /* Poster prints, laid on the paper scraps (tactical-poster language: heavy caps, +++, microtext). */
   .vibe-poster--sigint { --m: url("../../images/vibe/poster-sigint.svg?v=#{$vibe-v}"); --ar: 300 / 380; }
-  .vibe-poster--noise  { --m: url("../../images/vibe/poster-noise.svg?v=#{$vibe-v}");  --ar: 340 / 250; }
   .vibe-poster--2026   { --m: url("../../images/vibe/poster-2026.svg?v=#{$vibe-v}");   --ar: 340 / 250; }
   /* Accent-mark layers (stars, X marks, dials, +++): same box and colour as the piece underneath. */
   .vibe-red { --b: 0px; }
   .vibe-red.vibe-poster--sigint { --m: url("../../images/vibe/poster-sigint-red.svg?v=#{$vibe-v}"); }
-  .vibe-red.vibe-poster--noise  { --m: url("../../images/vibe/poster-noise-red.svg?v=#{$vibe-v}"); }
   .vibe-red.vibe-poster--2026   { --m: url("../../images/vibe/poster-2026-red.svg?v=#{$vibe-v}"); }
   .vibe-red.vibe-p--halftone    { --m: url("../../images/vibe/halftone-dots-red.svg?v=#{$vibe-v}"); }
   .vibe-red.vibe-p--notes       { --m: url("../../images/vibe/notes-scrawl-red.svg?v=#{$vibe-v}"); }
@@ -238,7 +236,6 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   .vibe-ph--0day      { --m: url("../../images/vibe/poster-0day.png?v=#{$vibe-v}"); }
   .vibe-ph--cipher    { --m: url("../../images/vibe/poster-cipher.png?v=#{$vibe-v}"); }
   .vibe-ph--pivot     { --m: url("../../images/vibe/poster-pivot.png?v=#{$vibe-v}"); }
-  .vibe-ph--enigma    { --m: url("../../images/vibe/poster-enigma.png?v=#{$vibe-v}"); }
   .vibe-ph--mainframe { --m: url("../../images/vibe/poster-mainframe.png?v=#{$vibe-v}"); }
   .vibe-ph--core      { --m: url("../../images/vibe/poster-core.png?v=#{$vibe-v}"); }
   .vibe-ph--watched   { --m: url("../../images/vibe/poster-watched.png?v=#{$vibe-v}"); }
@@ -251,7 +248,7 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   .vibe-slot--r2 { --sx: calc(95% - var(--sw)); --sy: clamp(1460px, 69%, 3500px); --r: -1.5deg; }
   .vibe-slot--l3 { --sx: 3%;                    --sy: clamp(1540px, 73%, 3700px); --r: 1.5deg; }
   /* Extra slots for long pages (certificates, guides): only once the page is tall enough (below). */
-  .vibe-slot--la { --sx: 3%;                    --sy: 41.5%; --r: -1.5deg; }
+  .vibe-slot--la { --sx: 5%;                    --sy: clamp(1100px, 52%, 3400px); --r: -1.5deg; }   /* NOISE's old spot; higher on long pages */
   .vibe-slot--lb { --sx: 4%;                    --sy: 85%; --r: 1deg; }
   .vibe-slot--ra { --sx: calc(96% - var(--sw)); --sy: 19%; --r: -2deg; }
   .vibe-slot--rb { --sx: calc(97% - var(--sw)); --sy: 54%; --r: 1.5deg; }
@@ -282,7 +279,6 @@ html.vibe-wait .vibe-layer { opacity: 0; }
     .vibe-ph--dish     { --x: -34%; --y: -12%; --w: 92%; --o: 0.22; --b: 0px; --r: -5deg; }
     .vibe-p--monitors  { --x: 6%;   --y: 0%;  --w: 68%; --r: -2deg; }
     .vibe-p--scrap2    { --x: 30%;  --y: 50%; --w: 72%; --r: 5deg; }
-    .vibe-poster--noise  { --x: 35%; --y: 53%; --w: 62%; --r: 5deg; }
     .vibe-p--radio     { --x: 46%;  --y: 40%; --w: 44%; --r: 7deg; }
     .vibe-p--tape      { --x: 50%;  --y: 39%; --w: 34%; --r: -14deg; }
     .vibe-p--hexdump   { --x: -4%;  --y: 80%; --w: 68%; --r: -4deg; }
@@ -397,9 +393,16 @@ html.vibe-wait .vibe-layer { opacity: 0; }
 
 @container vibe (min-width: 1680px) and (min-height: 2900px) {
   .vibe-slot--long { display: block !important; }
+  .vibe-slot--la { --sy: 41.5%; }
   /* sketches that sit under the long-page posters (measured on a certificate page at 1920px) */
   .vibe-kit--fieldkit, .vibe-kit-tape--fieldkit, .vibe-sec--fingerprint, .vibe-cluster--r1 .vibe-p--qr, .vibe-cluster--r1 .vibe-p--tape2,
   .vibe-x--eye, .vibe-sec--padlock, .vibe-cluster--r2 .vibe-p--pcb, .vibe-cluster--r2 .vibe-p--lockpick { display: none !important; }
+}
+
+/* Short pages: the left-middle poster sits in NOISE's old spot; clear the cluster under it. */
+@container vibe (min-width: 1680px) and (max-height: 2899.98px) {
+  .vibe-kit--fieldkit, .vibe-kit-tape--fieldkit, .vibe-cluster--l2 .vibe-ph--dish, .vibe-cluster--l2 .vibe-p--monitors,
+  .vibe-cluster--l2 .vibe-p--scrap2, .vibe-cluster--l2 .vibe-p--radio, .vibe-cluster--l2 .vibe-p--tape { display: none !important; }
 }
 
 /* ---------- Motion: scroll-driven depth (progressive enhancement, no JS) ---------- */
