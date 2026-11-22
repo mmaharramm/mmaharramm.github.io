@@ -238,11 +238,11 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   .vibe-ph--pivot     { --m: url("../../images/vibe/poster-pivot.png?v=#{$vibe-v}"); }
   .vibe-ph--mainframe { --m: url("../../images/vibe/poster-mainframe.png?v=#{$vibe-v}"); }
   .vibe-ph--core      { --m: url("../../images/vibe/poster-core.png?v=#{$vibe-v}"); }
-  .vibe-ph--watched   { --m: url("../../images/vibe/poster-watched.png?v=#{$vibe-v}"); }
   .vibe-ph--backbone  { --m: url("../../images/vibe/poster-backbone.png?v=#{$vibe-v}"); }
   .vibe-ph--archive   { --m: url("../../images/vibe/poster-archive.png?v=#{$vibe-v}"); }
   .vibe-ph--terminal  { --m: url("../../images/vibe/poster-terminal.png?v=#{$vibe-v}"); }
   .vibe-ph--drop      { --m: url("../../images/vibe/poster-drop.png?v=#{$vibe-v}"); }
+  .vibe-ph--picks     { --m: url("../../images/vibe/poster-picks.png?v=#{$vibe-v}"); }
   .vibe-slot { --sw: clamp(190px, 72%, 330px); --ar: 900 / 1125; }
   .vibe-ph.vibe-slot   { --x: var(--sx); --y: var(--sy); --w: var(--sw); --o: 0.34; --b: 0px; }
   .vibe-card.vibe-slot { --x: calc(var(--sx) - 6px); --y: calc(var(--sy) - 8px); --w: calc(var(--sw) + 12px); opacity: min(0.92, calc(var(--vibe-paper-o) + 0.3)); }
@@ -257,6 +257,14 @@ html.vibe-wait .vibe-layer { opacity: 0; }
   .vibe-slot--rb { --sx: calc(97% - var(--sw)); --sy: 54%; --r: 1.5deg; }
   .vibe-slot--rc { --sx: calc(95% - var(--sw)); --sy: 84%; --r: -1deg; }
   .vibe-slot--long { display: none !important; }
+  /* Small "chip" prints for the gaps between posters: same posters at about half size. */
+  .vibe-chip { --sw: clamp(120px, 40%, 180px); }
+  .vibe-chip--s1 { --sx: calc(92% - var(--sw)); --sy: 56.5%; --r: 3deg; }
+  .vibe-chip--s2 { --sx: calc(88% - var(--sw)); --sy: 87%; --r: -2.5deg; }
+  .vibe-chip--l1 { --sx: 6%;                    --sy: 15%; --r: -3deg; }
+  .vibe-chip--l2 { --sx: calc(90% - var(--sw)); --sy: 30.5%; --r: 2.5deg; }
+  .vibe-chip--l3 { --sx: calc(86% - var(--sw)); --sy: 48%; --r: -2deg; }
+  .vibe-chip--short, .vibe-chip--tall { display: none !important; }
   .vibe-card { -webkit-mask: none; mask: none; background-color: var(--vibe-paper); opacity: var(--vibe-paper-o); filter: drop-shadow(0 2px 4px var(--vibe-shadow)); }
   .vibe-card--listen { --x: 1%; --y: calc(clamp(600px, 28%, 1400px) - 8px); --w: calc(clamp(190px, 72%, 330px) + 12px); --ar: 900 / 1125; --r: -2deg; }
 
@@ -396,6 +404,7 @@ html.vibe-wait .vibe-layer { opacity: 0; }
 
 @container vibe (min-width: 1680px) and (min-height: 2900px) {
   .vibe-slot--long { display: block !important; }
+  .vibe-chip--tall { display: block !important; }
   .vibe-slot--la { --sy: 41.5%; }
   .vibe-cluster--l2 .vibe-ph--dish, .vibe-cluster--l2 .vibe-p--monitors, .vibe-cluster--l2 .vibe-p--scrap2,
   .vibe-cluster--l2 .vibe-p--radio, .vibe-cluster--l2 .vibe-p--tape { display: none !important; }
@@ -406,6 +415,7 @@ html.vibe-wait .vibe-layer { opacity: 0; }
 
 /* Short pages: the left-middle poster sits in NOISE's old spot; clear the cluster under it. */
 @container vibe (min-width: 1680px) and (max-height: 2899.98px) {
+  .vibe-chip--short { display: block !important; }
   .vibe-kit--fieldkit, .vibe-kit-tape--fieldkit, .vibe-cluster--l2 .vibe-ph--dish, .vibe-cluster--l2 .vibe-p--monitors,
   .vibe-cluster--l2 .vibe-p--scrap2, .vibe-cluster--l2 .vibe-p--radio, .vibe-cluster--l2 .vibe-p--tape { display: none !important; }
 }

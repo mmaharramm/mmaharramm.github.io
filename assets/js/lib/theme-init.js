@@ -9,6 +9,31 @@
     if (localStorage.getItem('theme') === 'dark') root.setAttribute('data-theme', 'dark');
   } catch (e) { /* storage blocked: stay on the light default */ }
 
+  // Steady desktop scale: the site renders at 90% on mouse/trackpad screens, and browser zoom
+  // (Cmd/Ctrl +/-) is mostly cancelled out, so it only nudges the size (200% zoom ~ 11% bigger).
+  // Zoom level = outerWidth / innerWidth, snapped to the browser's zoom steps and accepted only
+  // when devicePixelRatio agrees (so a docked DevTools panel is not mistaken for zoom).
+  // Browsers where this cannot be read (e.g. Firefox) simply keep normal zoom.
+  var fine = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (fine && (window.screen && screen.width >= 1024)) {
+    var steps = [0.25, 0.33, 0.5, 0.67, 0.75, 0.8, 0.9, 1, 1.1, 1.25, 1.5, 1.75, 2, 2.5, 3, 4, 5];
+    var bases = [1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 3];
+    var near = function (v, list, tol) {
+      for (var i = 0; i < list.length; i++) { if (Math.abs(v / list[i] - 1) <= tol) { return list[i]; } }
+      return 0;
+    };
+    var steady = function () {
+      var z = 1, r = window.outerWidth / window.innerWidth;
+      if (isFinite(r) && r > 0) {
+        var s = near(r, steps, 0.03);
+        if (s && s !== 1 && near((window.devicePixelRatio || 1) / s, bases, 0.04)) { z = s; }
+      }
+      root.style.zoom = z === 1 ? '' : (0.9 * Math.pow(z, -0.85)).toFixed(4);
+    };
+    steady();
+    window.addEventListener('resize', steady);
+  }
+
   // Only pages wide enough to have gutters show the art (the CSS decides exactly, by laid-out
   // width); this rough gate just avoids holding back a layer that will not appear anyway.
   // 1296 = 1440 x 0.9, the narrowest window that can lay out 1440px at the desktop 90% zoom.
