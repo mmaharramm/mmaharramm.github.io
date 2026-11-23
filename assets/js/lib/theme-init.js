@@ -38,7 +38,25 @@
   // width); this rough gate just avoids holding back a layer that will not appear anyway.
   // 1296 = 1440 x 0.9, the narrowest window that can lay out 1440px at the desktop 90% zoom.
   var wide = (window.innerWidth || 0) >= 1296;
-  if (wide) {
+
+  // Once the service worker (/sw.js) holds every art image for this deploy, the art paints straight
+  // from the device with the page, so it is not hidden at all. The deploy version is this script's ?v=.
+  var me = document.currentScript, ver = me && (me.src.match(/[?&]v=(\d+)/) || [])[1];
+  var sw = 'serviceWorker' in navigator;
+  var warm = false;
+  try { warm = !!(sw && navigator.serviceWorker.controller && ver && localStorage.getItem('vibe-cached') === ver); } catch (e) { }
+  if (sw) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('/sw.js').then(function () { return navigator.serviceWorker.ready; }).then(function (reg) {
+        if (!wide || warm || !reg.active || !ver) { return; }
+        var ch = new MessageChannel();
+        ch.port1.onmessage = function (e) { if (e.data === ver) { try { localStorage.setItem('vibe-cached', ver); } catch (x) { } } };
+        reg.active.postMessage('vibe-precache', [ch.port2]);
+      })['catch'](function () { });
+    }, { once: true });
+  }
+
+  if (wide && !warm) {
     root.classList.add('vibe-wait');
     var shown = false;
     var reveal = function () {
