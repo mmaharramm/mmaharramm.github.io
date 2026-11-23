@@ -39,24 +39,17 @@
   // 1296 = 1440 x 0.9, the narrowest window that can lay out 1440px at the desktop 90% zoom.
   var wide = (window.innerWidth || 0) >= 1296;
 
-  // Once the service worker (/sw.js) holds every art image for this deploy, the art paints straight
-  // from the device with the page, so it is not hidden at all. The deploy version is this script's ?v=.
-  var me = document.currentScript, ver = me && (me.src.match(/[?&]v=(\d+)/) || [])[1];
-  var sw = 'serviceWorker' in navigator;
-  var warm = false;
-  try { warm = !!(sw && navigator.serviceWorker.controller && ver && localStorage.getItem('vibe-cached') === ver); } catch (e) { }
-  if (sw) {
+  // Clean-up: an earlier version installed a service worker (/sw.js) to keep the art on the device.
+  // It is retired; remove it and its cache from devices that still have it.
+  if ('serviceWorker' in navigator) {
+    try { localStorage.removeItem('vibe-cached'); } catch (e) { }
     window.addEventListener('load', function () {
-      navigator.serviceWorker.register('/sw.js').then(function () { return navigator.serviceWorker.ready; }).then(function (reg) {
-        if (!wide || warm || !reg.active || !ver) { return; }
-        var ch = new MessageChannel();
-        ch.port1.onmessage = function (e) { if (e.data === ver) { try { localStorage.setItem('vibe-cached', ver); } catch (x) { } } };
-        reg.active.postMessage('vibe-precache', [ch.port2]);
-      })['catch'](function () { });
+      navigator.serviceWorker.getRegistrations().then(function (rs) { rs.forEach(function (r) { r.unregister(); }); })['catch'](function () { });
+      if (window.caches) { caches.keys().then(function (ks) { ks.forEach(function (k) { if (k.indexOf('static-') === 0) { caches['delete'](k); } }); })['catch'](function () { }); }
     }, { once: true });
   }
 
-  if (wide && !warm) {
+  if (wide) {
     root.classList.add('vibe-wait');
     var shown = false;
     var reveal = function () {
