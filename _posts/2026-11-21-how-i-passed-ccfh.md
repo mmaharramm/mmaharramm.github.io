@@ -12,6 +12,9 @@ published: true       # set to true when the guide is ready to go live
 <!-- Pictures: put them in /images/guides/ccfh/ (strip metadata first), then:
      ![Short description](/images/guides/ccfh/file-name.png) -->
 
+<img width="1600" height="1236" alt="image" src="https://github.com/user-attachments/assets/4f2b3081-90ad-490c-bab4-7c71dfd34ffb" />
+
+
 ## Overview
 
 My overall experience with the exam was pretty smooth. However, what helped me the most was my previous knowledge and experience in penetration testing, which proved useful for the majority of the questions.
