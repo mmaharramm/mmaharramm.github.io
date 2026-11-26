@@ -1,6 +1,6 @@
 ---
-title: "How I Passed CCFH"
-date: 2026-11-21
+title: "How I Passed CrowdStrike Certified Falcon Hunter (CCFH)"
+date: 2026-11-26
 categories: [certs]
 tags: [certification, exam-guide, ccfh]
 cert: "CCFH"          # links this guide to the CCFH tile and certificate page
